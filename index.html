@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>KuKu FM • Audio Stories, Audiobooks & Microdrama Promo Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── KUKU FM DESIGN SYSTEM ─── */
+    :root {
+      --bg-main: #121212;
+      --bg-surface: #1E1E1E;
+      --bg-elevated: #282828;
+      --bg-input: #2A2A2A;
+      --accent-orange: #FF7A00;
+      --accent-orange-hover: #FF8F26;
+      --accent-gold: #FFC107;
+      --accent-emerald: #00F59B;
+      --accent-cyan: #00E5FF;
+      --accent-danger: #FF3366;
+      --text-primary: #FFFFFF;
+      --text-secondary: #B3B3B3;
+      --text-muted: #7E7E7E;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(255, 122, 0, 0.4);
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.4);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding-bottom: 120px; /* space for sticky player */
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ─── STICKY HEADER ─── */
+    header.kuku-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(18, 18, 18, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      gap: 1.5rem;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .kuku-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+    }
+
+    .kuku-logo-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #FF7A00 0%, #FF3D00 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(255, 122, 0, 0.35);
+    }
+
+    .kuku-logo-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #FFFFFF;
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+
+    .brand-title span {
+      color: var(--accent-orange);
+    }
+
+    .studio-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      background: rgba(255, 122, 0, 0.15);
+      border: 1px solid rgba(255, 122, 0, 0.35);
+      color: var(--accent-orange);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-left: 0.4rem;
+    }
+
+    /* Search Bar */
+    .header-center {
+      flex: 1;
+      max-width: 540px;
+    }
+
+    .search-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-wrap svg.search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      fill: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 42px;
+      background: var(--bg-input);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-pill);
+      padding: 0 40px 0 42px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-orange);
+      box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.15);
+      background: #333333;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* Header Actions */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .download-app-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .download-app-link:hover {
+      color: #FFFFFF;
+    }
+
+    .btn-premium {
+      background: linear-gradient(135deg, var(--accent-orange) 0%, #FF5500 100%);
+      color: #FFFFFF;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 14px rgba(255, 122, 0, 0.35);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-premium:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(255, 122, 0, 0.45);
+    }
+
+    .user-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3A3A3A 0%, #202020 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--accent-gold);
+    }
+
+    /* ─── SUB-NAVIGATION PILLS ─── */
+    nav.kuku-subnav {
+      position: sticky;
+      top: 70px;
+      z-index: 990;
+      background: rgba(18, 18, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.75rem 2rem;
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    nav.kuku-subnav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-pill {
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--bg-surface);
+      border: 1px solid transparent;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-pill:hover {
+      color: #FFFFFF;
+      background: var(--bg-elevated);
+    }
+
+    .nav-pill.active {
+      color: #000000;
+      background: #FFFFFF;
+      font-weight: 700;
+    }
+
+    .nav-pill.pill-kuku {
+      background: rgba(255, 122, 0, 0.15);
+      border-color: rgba(255, 122, 0, 0.3);
+      color: var(--accent-orange);
+    }
+
+    .nav-pill.pill-kuku.active {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+    }
+
+    /* ─── MAIN CONTAINER ─── */
+    main.kuku-main {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+
+    /* ─── HERO SECTION (CAROUSEL BANNER) ─── */
+    section.hero-banner {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      background: #1a1a1a;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-bg-art {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 30%, rgba(255, 122, 0, 0.25) 0%, rgba(18, 18, 18, 0.8) 60%, #121212 95%),
+                  linear-gradient(135deg, #1f120c 0%, #121212 100%);
+      z-index: 1;
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.6;
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 3rem;
+      max-width: 720px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge-rank1 {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-diamond {
+      background: rgba(255, 193, 7, 0.15);
+      border: 1px solid rgba(255, 193, 7, 0.4);
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-hook-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid var(--accent-orange);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-hook-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-hook-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1.4;
+    }
+
+    .hero-question {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-question span.q-badge {
+      background: rgba(255, 51, 102, 0.15);
+      color: var(--accent-danger);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-play {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.8rem 1.8rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 18px rgba(255, 122, 0, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-play:hover {
+      background: var(--accent-orange-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-hero-sim {
+      background: var(--bg-surface);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-hero-sim:hover {
+      background: var(--bg-elevated);
+      border-color: #FFFFFF;
+    }
+
+    /* ─── SECTION ROW HEADER ─── */
+    .row-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+      padding: 0 0.2rem;
+    }
+
+    .row-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row-kicker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
+
+    .row-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .row-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .view-all-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-orange);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      cursor: pointer;
+    }
+
+    .scroll-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .scroll-btn:hover {
+      background: var(--bg-elevated);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ─── CONTENT ROWS (HORIZONTAL SCROLL) ─── */
+    .content-track-container {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .horizontal-scroll-track {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0.5rem 0.2rem 1.5rem 0.2rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+    }
+
+    .horizontal-scroll-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .horizontal-scroll-track::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+    }
+
+    /* ─── TOP 10 CARD WITH HUGE RANK NUMERAL ─── */
+    .top10-card {
+      flex: 0 0 260px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding-left: 55px; /* space for large number */
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+
+    .top10-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .top10-number {
+      position: absolute;
+      left: -5px;
+      bottom: 20px;
+      font-family: var(--font-heading);
+      font-size: 7.5rem;
+      font-weight: 900;
+      line-height: 0.8;
+      color: #121212;
+      -webkit-text-stroke: 2.5px rgba(255, 255, 255, 0.35);
+      user-select: none;
+      z-index: 1;
+      transition: all 0.25s ease;
+    }
+
+    .top10-card:hover .top10-number {
+      -webkit-text-stroke: 2.5px var(--accent-orange);
+      color: rgba(255, 122, 0, 0.1);
+    }
+
+    .top10-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── STANDARD AUDIO CARD ─── */
+    .audio-card {
+      flex: 0 0 200px;
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .audio-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Cover Art (4:5 aspect ratio) */
+    .card-cover {
+      position: relative;
+      width: 100%;
+      padding-top: 125%; /* 4:5 ratio */
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+    }
+
+    .cover-gradient-art {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.8rem;
+    }
+
+    /* Dynamic Cover Art Styles based on episode index */
+    .art-scheme-1 { background: linear-gradient(145deg, #FF7A00 0%, #7A1D00 100%); }
+    .art-scheme-2 { background: linear-gradient(145deg, #9C27B0 0%, #311B92 100%); }
+    .art-scheme-3 { background: linear-gradient(145deg, #00B0FF 0%, #00227B 100%); }
+    .art-scheme-4 { background: linear-gradient(145deg, #00E676 0%, #004D40 100%); }
+    .art-scheme-5 { background: linear-gradient(145deg, #FF1744 0%, #880E4F 100%); }
+    .art-scheme-6 { background: linear-gradient(145deg, #FF9100 0%, #3E2723 100%); }
+    .art-scheme-7 { background: linear-gradient(145deg, #00E5FF 0%, #1A237E 100%); }
+
+    .card-top-badges {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .badge-diamond-card {
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 193, 7, 0.5);
+      color: var(--accent-gold);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.18rem 0.45rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .btn-bookmark {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-bookmark:hover, .btn-bookmark.saved {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      border-color: var(--accent-orange);
+    }
+
+    .card-play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .audio-card:hover .card-play-overlay,
+    .top10-card:hover .card-play-overlay {
+      opacity: 1;
+    }
+
+    .circle-play-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      transform: scale(0.9);
+      transition: transform 0.2s ease;
+    }
+
+    .audio-card:hover .circle-play-btn,
+    .top10-card:hover .circle-play-btn {
+      transform: scale(1);
+    }
+
+    .cover-bottom-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .duration-pill {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+
+    /* Card Details */
+    .card-body {
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-genre {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 2.3rem;
+    }
+
+    .card-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .listen-count {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .listen-count svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--text-muted);
+    }
+
+    /* ─── STICKY BOTTOM AUDIO PLAYER ─── */
+    .sticky-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 82px;
+      background: rgba(22, 22, 22, 0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-top: 1px solid var(--border-subtle);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .player-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 300px;
+    }
+
+    .player-thumb {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--accent-orange);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .player-track-info {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .player-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .player-subtitle {
+      font-size: 0.72rem;
+      color: var(--accent-orange);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Center Controls */
+    .player-center {
+      flex: 1;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .player-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .player-ctrl-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s;
+    }
+
+    .player-ctrl-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .btn-main-play {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease;
+      cursor: pointer;
+    }
+
+    .btn-main-play:hover {
+      transform: scale(1.08);
+      background: var(--accent-orange);
+      color: #FFFFFF;
+    }
+
+    .scrubber-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .time-txt {
+      font-size: 0.7rem;
+      font-family: monospace;
+      color: var(--text-muted);
+      width: 45px;
+    }
+
+    .progress-bar-wrap {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent-orange);
+      border-radius: 2px;
+      width: 0%;
+      position: relative;
+    }
+
+    /* Right Action */
+    .player-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      width: 280px;
+      justify-content: flex-end;
+    }
+
+    .btn-action-pill {
+      background: rgba(255, 122, 0, 0.15);
+      border: 1px solid var(--accent-orange);
+      color: var(--accent-orange);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-action-pill:hover {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+    }
+
+    /* ─── MODALS (9:16 SIMULATOR & COMPARE ENDINGS) ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #181818;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      max-width: 820px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .btn-close-modal {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 1.75rem;
+    }
+
+    /* ─── 9:16 MOBILE PHONE SIMULATOR ─── */
+    .phone-simulator-frame {
+      width: 320px;
+      height: 570px;
+      background: #000000;
+      border-radius: 36px;
+      border: 8px solid #2B2B2B;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.9);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem 1rem;
+    }
+
+    .phone-top-status {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .phone-sim-content {
+      margin: auto 0;
+      text-align: center;
+    }
+
+    .phone-hook-tag {
+      display: inline-block;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .phone-hook-line {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+
+    .phone-subtitles {
+      font-size: 0.85rem;
+      color: var(--accent-gold);
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    .phone-swipe-up {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--accent-emerald);
+      font-size: 0.75rem;
+      font-weight: 700;
+      animation: bounceSwipe 1.5s infinite;
+    }
+
+    @keyframes bounceSwipe {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* ─── COMPARE ENDINGS CARDS ─── */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .compare-side-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .compare-side-card.chosen {
+      border-top: 3px solid var(--accent-cyan);
+    }
+
+    .compare-side-card.next {
+      border-top: 3px solid var(--accent-danger);
+    }
+
+    /* ─── 4-COLUMN FOOTER ─── */
+    footer.kuku-footer {
+      background: #0B0B0B;
+      border-top: 1px solid var(--border-subtle);
+      padding: 3.5rem 2rem 2rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-grid {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links li a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.15s;
+    }
+
+    .footer-links li a:hover {
+      color: var(--accent-orange);
+    }
+
+    .footer-bottom {
+      max-width: 1440px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-content {
+        padding: 1.5rem;
+      }
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header.kuku-header {
+        padding: 0 1rem;
+      }
+      .header-center {
+        display: none; /* hidden on small mobile */
+      }
+      .download-app-link {
+        display: none;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .sticky-player {
+        padding: 0 1rem;
+      }
+      .player-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOP HEADER -->
+  <header class="kuku-header">
+    <div class="header-left">
+      <div class="kuku-brand" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <div class="kuku-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <div class="brand-title">KuKu <span>FM</span> <span class="studio-pill">PROMO STUDIO</span></div>
+      </div>
+    </div>
+
+    <!-- Center Search Bar -->
+    <div class="header-center">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" id="globalSearchInput" class="search-input" placeholder="Search for audiobooks, stories, hooks, characters..." oninput="handleGlobalSearch(this.value)">
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="header-right">
+      <div class="download-app-link" onclick="openDownloadModal()">
+        <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+        <span>Download App</span>
+      </div>
+      <button class="btn-premium" onclick="openCompareModal('12')">
+        <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.84L19.53 19H4.47L12 5.84z"/></svg>
+        <span>Compare Endings</span>
+      </button>
+      <div class="user-avatar" title="Abhishek Biradar">AB</div>
+    </div>
+  </header>
+
+  <!-- SUB-NAVIGATION PILLS -->
+  <nav class="kuku-subnav">
+    <div class="nav-pill active" onclick="filterCategory('all', this)">Home</div>
+    <div class="nav-pill pill-kuku" onclick="filterCategory('top10', this)">🔥 Top 10 Ranked Promos</div>
+    <div class="nav-pill" onclick="filterCategory('punchy', this)">⚡ 20–35s Retention Hooks</div>
+    <div class="nav-pill" onclick="filterCategory('extended', this)">💎 35–60s Cliffhangers</div>
+    <div class="nav-pill" onclick="filterCategory('originals', this)">Originals</div>
+    <div class="nav-pill" onclick="openCompareModal('12')">🔍 Compare Endings Inspector</div>
+    <div class="nav-pill" onclick="openSimulatorModal(0)">📱 9:16 Feed Simulator</div>
+    <div class="nav-pill" onclick="filterCategory('saved', this)" id="navMySpace">My Space (<span id="savedCount">0</span>)</div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="kuku-main">
+
+    <!-- HERO BANNER CAROUSEL -->
+    <section class="hero-banner">
+      <div class="hero-bg-art"></div>
+      <div class="hero-particles"></div>
+      <div class="hero-content">
+        <div class="hero-badge-row">
+          <span class="badge-rank1">🏆 #1 GLOBAL STANDOUT PROMO</span>
+          <span class="badge-diamond">💎 DIAMOND ORIGINAL • EPISODE 36</span>
+        </div>
+        <h1 class="hero-title" id="heroTitle">Alexander's Frozen Expression</h1>
+        <div class="hero-hook-box">
+          <div class="hero-hook-tag">
+            <svg style="width:12px;height:12px;fill:currentColor" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+            <span>0:00–0:03 RETENTION HOOK</span>
+          </div>
+          <div class="hero-hook-text" id="heroHook">"Close-up on Alexander, his expression freezing in complete shock."</div>
+        </div>
+        <div class="hero-question">
+          <span class="q-badge">CLIFFHANGER QUESTION</span>
+          <span id="heroQuestion">"When?" (Terminates at 02:21.50)</span>
+        </div>
+        <div class="hero-actions">
+          <button class="btn-hero-play" onclick="playPromo(0)">
+            <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span>Play Promo Cut (38.0s)</span>
+          </button>
+          <button class="btn-hero-sim" onclick="openSimulatorModal(0)">
+            <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+            <span>9:16 Video Simulator</span>
+          </button>
+          <button class="btn-hero-sim" onclick="openCompareModal('12')">
+            <span>Inspect Safety</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT ROW 1: TOP 10 RANKED PROMOS WITH HUGE NUMBERS -->
+    <div class="content-track-container" id="sectionTop10">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <span class="row-kicker">KUKU PS1 SHOW ENGINE</span>
+          <h2 class="row-title">Top 10 Ranked Promo Cuts</h2>
+        </div>
+        <div class="row-actions">
+          <button class="scroll-btn" onclick="scrollTrack('trackTop10', -300)">‹</button>
+          <button class="scroll-btn" onclick="scrollTrack('trackTop10', 300)">›</button>
+        </div>
+      </div>
+      <div class="horizontal-scroll-track" id="trackTop10"></div>
+    </div>
+
+    <!-- CONTENT ROW 2: PUNCHY 20–35s RETENTION HOOKS -->
+    <div class="content-track-container" id="sectionPunchy">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <span class="row-kicker">HIGH VELOCITY HOOKS</span>
+          <h2 class="row-title">⚡ Fast Pacing Promos (20–35s)</h2>
+        </div>
+        <div class="row-actions">
+          <button class="scroll-btn" onclick="scrollTrack('trackPunchy', -300)">‹</button>
+          <button class="scroll-btn" onclick="scrollTrack('trackPunchy', 300)">›</button>
+        </div>
+      </div>
+      <div class="horizontal-scroll-track" id="trackPunchy"></div>
+    </div>
+
+    <!-- CONTENT ROW 3: EXTENDED CLIFFHANGERS (35–60s) -->
+    <div class="content-track-container" id="sectionExtended">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <span class="row-kicker">MAXIMUM DRAMATIC TENSION</span>
+          <h2 class="row-title">🔥 Extended Micro-Dramas (35–60s)</h2>
+        </div>
+        <div class="row-actions">
+          <button class="scroll-btn" onclick="scrollTrack('trackExtended', -300)">‹</button>
+          <button class="scroll-btn" onclick="scrollTrack('trackExtended', 300)">›</button>
+        </div>
+      </div>
+      <div class="horizontal-scroll-track" id="trackExtended"></div>
+    </div>
+
+    <!-- CONTENT ROW 4: ALL 50 EPISODES CATALOG -->
+    <div class="content-track-container" id="sectionCatalog">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <span class="row-kicker">100% EPISODE COVERAGE</span>
+          <h2 class="row-title">🎬 Complete 50-Episode Show Catalog</h2>
+        </div>
+        <div class="row-actions">
+          <button class="scroll-btn" onclick="scrollTrack('trackCatalog', -300)">‹</button>
+          <button class="scroll-btn" onclick="scrollTrack('trackCatalog', 300)">›</button>
+        </div>
+      </div>
+      <div class="horizontal-scroll-track" id="trackCatalog"></div>
+    </div>
+
+  </main>
+
+  <!-- STICKY BOTTOM AUDIO PLAYER -->
+  <div class="sticky-player" id="stickyPlayer">
+    <div class="player-left">
+      <div class="player-thumb" id="playerThumb">E36</div>
+      <div class="player-track-info">
+        <span class="player-title" id="playerTitle">Close-up on Alexander, freezing in shock</span>
+        <span class="player-subtitle" id="playerSubtitle">
+          <span>Rank #1 • 38.0s</span>
+          <span>•</span>
+          <span id="playerHookTag">Hook: "When?"</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="player-center">
+      <div class="player-buttons">
+        <button class="player-ctrl-btn" onclick="seekRelative(-5)" title="Rewind 5s">
+          <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/></svg>
+        </button>
+        <button class="btn-main-play" id="btnPlayPause" onclick="togglePlayPause()">
+          <svg id="playIcon" style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="pauseIcon" style="width:20px;height:20px;fill:currentColor;display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <button class="player-ctrl-btn" onclick="seekRelative(5)" title="Forward 5s">
+          <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M11.5 8c2.65 0 5.05.99 6.9 2.6L22 7v9h-9l3.62-3.62c-1.39-1.16-3.16-1.88-5.12-1.88-3.54 0-6.55 2.31-7.6 5.5l-2.37-.78C2.92 11.03 6.85 8 11.5 8z"/></svg>
+        </button>
+      </div>
+      <div class="scrubber-row">
+        <span class="time-txt" id="currTimeTxt">00:00</span>
+        <div class="progress-bar-wrap" onclick="handleSeek(event)">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <span class="time-txt" id="totalTimeTxt">00:38</span>
+      </div>
+    </div>
+
+    <div class="player-right">
+      <button class="btn-action-pill" onclick="openSimulatorModal(activePromoIdx)">
+        <span>📱 Open 9:16 Sim</span>
+      </button>
+      <button class="btn-action-pill" onclick="openCompareModal(activePromo.id.replace('E',''))">
+        <span>⚖️ Compare Ending</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: COMPARE ENDINGS INSPECTOR -->
+  <div class="modal-overlay" id="compareModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">⚖️ Compare Endings & Speech Boundary Inspector</div>
+        <button class="btn-close-modal" onclick="closeModal('compareModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:1rem;">
+          Inspects the chosen promo cut out-point against the immediate subsequent line. Verified cases: <strong>Episode 12 (01:09.50 ➔ 01:09.80)</strong> and <strong>Episode 1 (00:39.00 ➔ 00:39.10)</strong>.
+        </p>
+
+        <!-- Episode Selector Tabs -->
+        <div style="display:flex;gap:0.5rem;margin-bottom:1.25rem;">
+          <button class="nav-pill active" onclick="switchCompareEp('12', this)">Episode 12 (Camera Freeze)</button>
+          <button class="nav-pill" onclick="switchCompareEp('1', this)">Episode 1 (Wedding Stop)</button>
+          <button class="nav-pill" onclick="switchCompareEp('36', this)">Episode 36 (Shock Reveal)</button>
+          <button class="nav-pill" onclick="switchCompareEp('13', this)">Episode 13 (Ring Mystery)</button>
+        </div>
+
+        <div class="compare-grid" id="compareGridContent"></div>
+
+        <div style="background:rgba(255,193,7,0.1);border-left:3px solid var(--accent-gold);border-radius:6px;padding:1rem;margin-top:1.5rem;font-size:0.85rem;color:#FFFFFF;" id="compareAnalysisBox"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: 9:16 MOBILE FEED SIMULATOR -->
+  <div class="modal-overlay" id="simModal">
+    <div class="modal-card" style="max-width:440px;">
+      <div class="modal-header">
+        <div class="modal-title">📱 9:16 Vertical Feed Preview</div>
+        <button class="btn-close-modal" onclick="closeModal('simModal')">&times;</button>
+      </div>
+      <div class="modal-body" style="padding:1.5rem 0.5rem;">
+        <div class="phone-simulator-frame">
+          <div class="phone-top-status">
+            <span>KUKU FM • FEED SIM</span>
+            <span>HD ● REC</span>
+          </div>
+
+          <div class="phone-sim-content">
+            <span class="phone-hook-tag">⚡ 0:00–0:03 HOOK</span>
+            <div class="phone-hook-line" id="simHookText">"Close-up on Alexander, his expression freezing in complete shock."</div>
+            <div style="font-size:3rem;margin:1rem 0;">🎬</div>
+            <div class="phone-subtitles" id="simQuestionText">"When?"</div>
+          </div>
+
+          <div class="phone-swipe-up">
+            <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+            <span id="simEpisodeSwipe">Swipe up for Episode 36</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4-COLUMN FOOTER (MATCHING SPEC) -->
+  <footer class="kuku-footer">
+    <div class="footer-grid">
+      <!-- Col 1: General -->
+      <div>
+        <div class="footer-col-title">General</div>
+        <ul class="footer-links">
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Studio for Creators</a></li>
+          <li><a href="#">Download App</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 2: Company -->
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Brand Guidelines</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Browse by Genre -->
+      <div>
+        <div class="footer-col-title">Browse by Genre</div>
+        <ul class="footer-links">
+          <li><a href="#">Audiobooks</a></li>
+          <li><a href="#">Courses & Learning</a></li>
+          <li><a href="#">Crime & Thriller</a></li>
+          <li><a href="#">Drama & Romance</a></li>
+          <li><a href="#">Personal Finance</a></li>
+          <li><a href="#">Motivation & Habits</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Browse by Language -->
+      <div>
+        <div class="footer-col-title">Browse by Language</div>
+        <ul class="footer-links">
+          <li><a href="#">Hindi</a></li>
+          <li><a href="#">English</a></li>
+          <li><a href="#">Marathi</a></li>
+          <li><a href="#">Bengali</a></li>
+          <li><a href="#">Telugu</a></li>
+          <li><a href="#">Tamil</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="footer-bottom">
+      <div>© 2026 KuKu FM. All rights reserved. Problem Statement 1 Submission by Abhishek Biradar.</div>
+      <div class="footer-legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">DMCA</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT APP LOGIC & AUDIO SYNTH -->
+  <script>
+    const PROMOS = [{"rank": 1, "id": "E36", "title": "Close-up on Alexander, his expression freezing in complete shock", "timecode": "E36 01:43.50\u201302:21.50", "duration_s": 38.0, "hook": "Close-up on Alexander, his expression freezing in complete shock.", "question": "When?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on ALEXANDER's spoken question (02:21.50) to force a new viewer to seek the answer in the next episode.", "listens": "482.1K", "genre": "Romantic Drama", "is_premium": true}, {"rank": 2, "id": "E3", "title": "Medium close-up on Juliana looking across at her sister", "timecode": "E3 00:08.50\u201300:40.40", "duration_s": 31.9, "hook": "Medium close-up on Juliana looking across at her sister with wounded pride.", "question": "And what happens to me?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY JULIANA's spoken question (00:40.40) to force a new viewer to seek the answer in the next episode.", "listens": "391.8K", "genre": "High Stakes Thriller", "is_premium": true}, {"rank": 3, "id": "E10", "title": "Close-up of Alexander struggling to breathe, clutching his bloodied", "timecode": "E10 00:06.80\u201300:53.30", "duration_s": 46.5, "hook": "Close-up of Alexander struggling to breathe, clutching his bloodied coat over his chest.", "question": "Does it hurt?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:53.30) to force a new viewer to seek the answer in the next episode.", "listens": "345.2K", "genre": "Courtroom Mystery", "is_premium": true}, {"rank": 4, "id": "E13", "title": "Juliana!", "timecode": "E13 01:26.50\u201301:58.88", "duration_s": 32.38, "hook": "Juliana!", "question": "[Visual Cliffhanger] Macro close-up holding on Juliana's bloodied fist firmly gripping the emerald ring against the frozen ground as the episode cuts to black.", "why": "Delivers an immediate hook through ALEXANDER inside 3 seconds. Ends on a visual cliffhanger beat (Macro close-up holding on Juliana's bloodied fist firmly gripping...) at 01:58.88, cutting away before the physical consequence or identity is revealed.", "listens": "298.5K", "genre": "Family Rivalry", "is_premium": true}, {"rank": 5, "id": "E26", "title": "Medium close-up of the Duchess looking upward toward Juliana", "timecode": "E26 00:55.80\u201301:45.00", "duration_s": 49.2, "hook": "Medium close-up of the Duchess looking upward toward Juliana, her voice trembling with tragic certainty.", "question": "Your Grace? What is wrong? You look as though you've seen a ghost.", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (01:45.00) to force a new viewer to seek the answer in the next episode.", "listens": "264.1K", "genre": "Historical Fiction", "is_premium": true}, {"rank": 6, "id": "E28", "title": "Tight close-up of Catherine's smiling face, her eyes gleaming", "timecode": "E28 00:12.60\u201300:53.60", "duration_s": 41.0, "hook": "Tight close-up of Catherine's smiling face, her eyes gleaming with vindictive pleasure.", "question": "You see?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on BLOND NOBLEMAN's spoken question (00:53.60) to force a new viewer to seek the answer in the next episode.", "listens": "215.9K", "genre": "Billionaire Romance", "is_premium": true}, {"rank": 7, "id": "E37", "title": "A public execution after a wedding", "timecode": "E37 01:06.50\u201301:59.80", "duration_s": 53.3, "hook": "A public execution after a wedding.", "question": "Do you think she'll actually be executed?", "why": "Starts immediately with NOBLEMAN's conflict hook in the first 3 seconds. The cut terminates on NOBLEMAN's spoken question (01:59.80) to force a new viewer to seek the answer in the next episode.", "listens": "189.4K", "genre": "Suspense & Betrayal", "is_premium": true}, {"rank": 8, "id": "E14", "title": "Warm interior wide shot in front of a roaring", "timecode": "E14 00:43.50\u201301:27.00", "duration_s": 43.5, "hook": "Warm interior wide shot in front of a roaring hearth fire. Juliana sits on a wooden chair while Alexander kneels on the floor before her, a washbasin of water between them.", "question": "[Visual Cliffhanger] Alexander's muscular arm drops into frame beside the bloody bucket; his scarred knuckles slowly and tightly clench into an iron fist of brewing vengeance.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Alexander's muscular arm drops into frame beside the bloody bucke...) at 01:27.00, cutting away before the physical consequence or identity is revealed.", "listens": "172.6K", "genre": "Romantic Drama", "is_premium": true}, {"rank": 9, "id": "E32", "title": "Burn it", "timecode": "E32 00:20.20\u201301:19.40", "duration_s": 59.2, "hook": "Burn it.", "question": "Your soldier?", "why": "Starts immediately with JULIANA's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (01:19.40) to force a new viewer to seek the answer in the next episode.", "listens": "158.3K", "genre": "High Stakes Thriller", "is_premium": true}, {"rank": 10, "id": "E16", "title": "Stay behind me", "timecode": "E16 00:13.10\u201301:03.00", "duration_s": 49.9, "hook": "Stay behind me.", "question": "[Visual Cliffhanger] Close-up on Alexander's hand hanging by his coat. Fresh blood trickles from his split knuckles, and he slowly curls his fingers into a tight fist.", "why": "Delivers an immediate hook through ALEXANDER inside 3 seconds. Ends on a visual cliffhanger beat (Close-up on Alexander's hand hanging by his coat. Fresh blood tri...) at 01:03.00, cutting away before the physical consequence or identity is revealed.", "listens": "144.7K", "genre": "Courtroom Mystery", "is_premium": true}, {"rank": 11, "id": "E18", "title": "Low-angle shot pointing up at the ceiling beams overhead", "timecode": "E18 01:03.00\u201301:59.80", "duration_s": 56.8, "hook": "Low-angle shot pointing up at the ceiling beams overhead, engulfed in roaring fire and splitting down the center.", "question": "[Visual Cliffhanger] Wide interior shot as the entire parlor collapses into an uncontrollable inferno of roaring flames.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Wide interior shot as the entire parlor collapses into an uncontr...) at 01:59.80, cutting away before the physical consequence or identity is revealed.", "listens": "118.0K", "genre": "Family Rivalry", "is_premium": true}, {"rank": 12, "id": "E23", "title": "Two-shot of Juliana holding the open journal, reciting the", "timecode": "E23 01:02.00\u201301:37.00", "duration_s": 35.0, "hook": "Two-shot of Juliana holding the open journal, reciting the matching symptoms to Prudence while the Duchess lies motionless in the background.", "question": "Can you save her?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on PRUDENCE's spoken question (01:37.00) to force a new viewer to seek the answer in the next episode.", "listens": "115.8K", "genre": "Historical Fiction", "is_premium": true}, {"rank": 13, "id": "E25", "title": "Prudence told me she was dying", "timecode": "E25 01:06.20\u201301:47.00", "duration_s": 40.8, "hook": "Prudence told me she was dying.", "question": "You treated her?", "why": "Starts immediately with JULIANA's conflict hook in the first 3 seconds. The cut terminates on ALEXANDER's spoken question (01:47.00) to force a new viewer to seek the answer in the next episode.", "listens": "113.6K", "genre": "Billionaire Romance", "is_premium": true}, {"rank": 14, "id": "E27", "title": "Close-up of Juliana, her voice rising passionately", "timecode": "E27 01:26.50\u201302:04.50", "duration_s": 38.0, "hook": "Close-up of Juliana, her voice rising passionately.", "question": "You hear that?!", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY CATHERINE's spoken question (02:04.50) to force a new viewer to seek the answer in the next episode.", "listens": "111.4K", "genre": "Suspense & Betrayal", "is_premium": true}, {"rank": 15, "id": "E43", "title": "I didn't!", "timecode": "E43 01:11.40\u201301:46.20", "duration_s": 34.8, "hook": "I didn't!", "question": "My Lord?", "why": "Starts immediately with BLOND NOBLEMAN's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (01:46.20) to force a new viewer to seek the answer in the next episode.", "listens": "109.2K", "genre": "Romantic Drama", "is_premium": true}, {"rank": 16, "id": "E6", "title": "He strikes flint and steel together over dry kindling", "timecode": "E6 01:21.00\u201301:55.00", "duration_s": 34.0, "hook": "He strikes flint and steel together over dry kindling, igniting bright sparks that catch into a flickering flame.", "question": "[Visual Cliffhanger] Close-up on the crackling flames and glowing embers of the fireplace, slowly fading to black as the music swells warmly.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Close-up on the crackling flames and glowing embers of the firepl...) at 01:55.00, cutting away before the physical consequence or identity is revealed.", "listens": "107.0K", "genre": "High Stakes Thriller", "is_premium": true}, {"rank": 17, "id": "E41", "title": "Extreme close-up of Juliana's scarred, dirtied wrists bound tight", "timecode": "E41 00:20.00\u201301:00.50", "duration_s": 40.5, "hook": "Extreme close-up of Juliana's scarred, dirtied wrists bound tight in heavy iron shackles.", "question": "You needed an entire chapel to feel powerful over one chained woman?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (01:00.50) to force a new viewer to seek the answer in the next episode.", "listens": "104.8K", "genre": "Courtroom Mystery", "is_premium": false}, {"rank": 18, "id": "E1", "title": "Close-up on Juliana clutching her chest, her sorrow turning", "timecode": "E1 00:46.80\u201301:38.20", "duration_s": 51.4, "hook": "Close-up on Juliana clutching her chest, her sorrow turning into burning outrage.", "question": "Embarrassed you?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY JULIANA's spoken question (01:38.20) to force a new viewer to seek the answer in the next episode.", "listens": "102.6K", "genre": "Family Rivalry", "is_premium": true}, {"rank": 19, "id": "E11", "title": "Those are all I have left!", "timecode": "E11 01:06.00\u201301:52.75", "duration_s": 46.75, "hook": "Those are all I have left!", "question": "[Visual Cliffhanger] Tight macro shot of the gold pocket watch dangling and swaying gently from the Constable's fingers on its long chain, with Gerald blurred in the background grinning with sinister triumph as the scene hangs in a devastating freeze-frame.", "why": "Delivers an immediate hook through JULIANA inside 3 seconds. Ends on a visual cliffhanger beat (Tight macro shot of the gold pocket watch dangling and swaying ge...) at 01:52.75, cutting away before the physical consequence or identity is revealed.", "listens": "100.4K", "genre": "Historical Fiction", "is_premium": false}, {"rank": 20, "id": "E12", "title": "Medium shot of Gerald tapping his whip against his", "timecode": "E12 01:00.80\u201301:27.21", "duration_s": 26.41, "hook": "Medium shot of Gerald tapping his whip against his palm and laughing heartily beside the Constable.", "question": "[Visual Cliffhanger] Juliana locks eyes with Clarissa without flinching as the scene freezes on her brave, sacrificial defiance.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Juliana locks eyes with Clarissa without flinching as the scene f...) at 01:27.21, cutting away before the physical consequence or identity is revealed.", "listens": "98.2K", "genre": "Billionaire Romance", "is_premium": true}, {"rank": 21, "id": "E21", "title": "A loud wooden slam as the heavy double barn", "timecode": "E21 00:03.50\u201300:45.50", "duration_s": 42.0, "hook": "A loud wooden slam as the heavy double barn doors violently fly open.", "question": "[Visual Cliffhanger] Heavy, raspy chest coughs echoing in the small room, accompanied by crackling hearth fire.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Heavy, raspy chest coughs echoing in the small room, accompanied ...) at 00:45.50, cutting away before the physical consequence or identity is revealed.", "listens": "96.0K", "genre": "Suspense & Betrayal", "is_premium": false}, {"rank": 22, "id": "E29", "title": "Close-up of Juliana lunging against the guard's grip, her", "timecode": "E29 00:40.00\u201301:14.30", "duration_s": 34.3, "hook": "Close-up of Juliana lunging against the guard's grip, her teeth bared in indignation.", "question": "Your scarred soldier?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (01:14.30) to force a new viewer to seek the answer in the next episode.", "listens": "93.8K", "genre": "Romantic Drama", "is_premium": true}, {"rank": 23, "id": "E30", "title": "Medium close-up of Catherine fluttering her fan beneath her", "timecode": "E30 01:13.50\u201302:01.50", "duration_s": 48.0, "hook": "Medium close-up of Catherine fluttering her fan beneath her chin, smirking approvingly.", "question": "And Juliana?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on RUPERT's spoken question (02:01.50) to force a new viewer to seek the answer in the next episode.", "listens": "91.6K", "genre": "High Stakes Thriller", "is_premium": false}, {"rank": 24, "id": "E34", "title": "The Lord turns dramatically to face the entire assembly", "timecode": "E34 01:50.00\u201302:41.80", "duration_s": 51.8, "hook": "The Lord turns dramatically to face the entire assembly, gesturing toward the spectators.", "question": "You understand that refusal may be treated as proof that you knowingly practiced witchcraft?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JUDGE's spoken question (02:41.80) to force a new viewer to seek the answer in the next episode.", "listens": "89.4K", "genre": "Courtroom Mystery", "is_premium": true}, {"rank": 25, "id": "E35", "title": "Close-up on his mother, gasping with wide, horrified eyes", "timecode": "E35 01:29.80\u201302:25.00", "duration_s": 55.2, "hook": "Close-up on his mother, gasping with wide, horrified eyes.", "question": "Who?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on ALEXANDER'S MOTHER's spoken question (02:25.00) to force a new viewer to seek the answer in the next episode.", "listens": "87.2K", "genre": "Family Rivalry", "is_premium": false}, {"rank": 26, "id": "E42", "title": "We will not", "timecode": "E42 00:22.00\u201301:17.80", "duration_s": 55.8, "hook": "We will not.", "question": "[Visual Cliffhanger] Tight close-up on Alexander, his hand resting on the hilt of his sabre as his eyes burn with fierce, cold retribution.", "why": "Delivers an immediate hook through ROYAL GUARD inside 3 seconds. Ends on a visual cliffhanger beat (Tight close-up on Alexander, his hand resting on the hilt of his ...) at 01:17.80, cutting away before the physical consequence or identity is revealed.", "listens": "85.0K", "genre": "Historical Fiction", "is_premium": true}, {"rank": 27, "id": "E2", "title": "Tight insert on Clarissa's gloved fingers contemptuously pinching the", "timecode": "E2 00:51.50\u201301:16.40", "duration_s": 24.9, "hook": "Tight insert on Clarissa's gloved fingers contemptuously pinching the satin folds of Juliana's gown.", "question": "Dignity?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY JULIANA's spoken question (01:16.40) to force a new viewer to seek the answer in the next episode.", "listens": "82.8K", "genre": "Billionaire Romance", "is_premium": false}, {"rank": 28, "id": "E4", "title": "Tight close-up of Gerald, eyes wide with speechless shock", "timecode": "E4 02:05.80\u201302:31.40", "duration_s": 25.6, "hook": "Tight close-up of Gerald, eyes wide with speechless shock and wounded pride.", "question": "[Visual Cliffhanger] Juliana and the Mysterious Bearded Man walk hand-in-hand through the towering doors into the sunlight together, turning their backs on the ruined wedding as the screen fades out.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Juliana and the Mysterious Bearded Man walk hand-in-hand through ...) at 02:31.40, cutting away before the physical consequence or identity is revealed.", "listens": "80.6K", "genre": "Suspense & Betrayal", "is_premium": true}, {"rank": 29, "id": "E5", "title": "Close-up on Lady Juliana's hands clutching an ancient, brass-bound", "timecode": "E5 00:00.00\u201300:33.40", "duration_s": 33.4, "hook": "Close-up on Lady Juliana's hands clutching an ancient, brass-bound leather ledger against the skirt of her white wedding gown as she walks.", "question": "You truly mean it? You are my father!", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:33.40) to force a new viewer to seek the answer in the next episode.", "listens": "78.4K", "genre": "Romantic Drama", "is_premium": false}, {"rank": 30, "id": "E9", "title": "Close-up of Alexander turning toward the doorway, his eyes", "timecode": "E9 00:03.50\u201300:35.80", "duration_s": 32.3, "hook": "Close-up of Alexander turning toward the doorway, his eyes sharp and vigilant.", "question": "You're certain?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on ALEXANDER's spoken question (00:35.80) to force a new viewer to seek the answer in the next episode.", "listens": "76.2K", "genre": "High Stakes Thriller", "is_premium": true}, {"rank": 31, "id": "E15", "title": "The Thug with Cap violently shoves Juliana back with", "timecode": "E15 00:47.40\u201301:22.40", "duration_s": 35.0, "hook": "The Thug with Cap violently shoves Juliana back with both hands; she cries out as she loses her balance and crashes hard onto the wet stone path.", "question": "What? You want to fight us, veteran?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on THUG WITH CAP's spoken question (01:22.40) to force a new viewer to seek the answer in the next episode.", "listens": "74.0K", "genre": "Courtroom Mystery", "is_premium": false}, {"rank": 32, "id": "E20", "title": "Once my cousin Alexander's death is formally sealed by", "timecode": "E20 00:21.30\u201301:00.30", "duration_s": 39.0, "hook": "Once my cousin Alexander's death is formally sealed by the Crown...", "question": "[Visual Cliffhanger] Medium close-up tilting down on JULIANA kneeling in the straw beside a rustic wooden crate, sorting sprigs of dried lavender and sage into a woven basket. Her hands are bound in linen bandages from the recent fire.", "why": "Delivers an immediate hook through RUPERT inside 3 seconds. Ends on a visual cliffhanger beat (Medium close-up tilting down on JULIANA kneeling in the straw bes...) at 01:00.30, cutting away before the physical consequence or identity is revealed.", "listens": "71.8K", "genre": "Family Rivalry", "is_premium": true}, {"rank": 33, "id": "E22", "title": "Lady Juliana stops in her tracks and gazes upward", "timecode": "E22 01:31.50\u201302:08.80", "duration_s": 37.3, "hook": "Lady Juliana stops in her tracks and gazes upward in awe at the soaring gilded ceilings and aristocratic crest.", "question": "Who has been treating you?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY JULIANA's spoken question (02:08.80) to force a new viewer to seek the answer in the next episode.", "listens": "69.6K", "genre": "Historical Fiction", "is_premium": false}, {"rank": 34, "id": "E24", "title": "The noblewoman suddenly rears back her riding crop and", "timecode": "E24 00:32.50\u201301:10.50", "duration_s": 38.0, "hook": "The noblewoman suddenly rears back her riding crop and strikes Juliana violently across the torso.", "question": "Do you want the same punishment?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on NOBLEWOMAN's spoken question (01:10.50) to force a new viewer to seek the answer in the next episode.", "listens": "67.4K", "genre": "Billionaire Romance", "is_premium": true}, {"rank": 35, "id": "E38", "title": "Medium profile shot of Juliana slumped on the damp", "timecode": "E38 00:00.00\u201300:39.00", "duration_s": 39.0, "hook": "Medium profile shot of Juliana slumped on the damp stone floor of her dark dungeon cell, her wrists bound in heavy iron shackles and chains draped over her lap.", "question": "...are you safe?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:39.00) to force a new viewer to seek the answer in the next episode.", "listens": "65.2K", "genre": "Suspense & Betrayal", "is_premium": false}, {"rank": 36, "id": "E39", "title": "Wide high-angle shot overlooking the stone cathedral steps where", "timecode": "E39 00:42.80\u201301:38.41", "duration_s": 55.61, "hook": "Wide high-angle shot overlooking the stone cathedral steps where both royal guards lie unconscious on the fallen autumn leaves while more men slip inside the opened doors.", "question": "[Visual Cliffhanger] Alexander's eyes burn with furious determination as the screen cuts sharply to black.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Alexander's eyes burn with furious determination as the screen cu...) at 01:38.41, cutting away before the physical consequence or identity is revealed.", "listens": "63.0K", "genre": "Romantic Drama", "is_premium": true}, {"rank": 37, "id": "E45", "title": "Full tracking shot following behind Alexander as he walks", "timecode": "E45 00:00.00\u201300:29.60", "duration_s": 29.6, "hook": "Full tracking shot following behind Alexander as he walks down the rubble-covered stone aisle toward Juliana.", "question": "All this time?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:29.60) to force a new viewer to seek the answer in the next episode.", "listens": "60.8K", "genre": "High Stakes Thriller", "is_premium": false}, {"rank": 38, "id": "E47", "title": "Low-angle focus on a dripping candle burning on a", "timecode": "E47 00:00.00\u201300:30.30", "duration_s": 30.3, "hook": "Low-angle focus on a dripping candle burning on a wooden table beside a dark window looking out into the misty night.", "question": "What if they strip your title? Because of me?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:30.30) to force a new viewer to seek the answer in the next episode.", "listens": "58.6K", "genre": "Courtroom Mystery", "is_premium": true}, {"rank": 39, "id": "E8", "title": "Low-angle medium close-up of Juliana looking up toward Alexander", "timecode": "E8 00:10.50\u201300:42.00", "duration_s": 31.5, "hook": "Low-angle medium close-up of Juliana looking up toward Alexander in pleasant surprise.", "question": "You prefer looking like a forest hermit?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:42.00) to force a new viewer to seek the answer in the next episode.", "listens": "56.4K", "genre": "Family Rivalry", "is_premium": false}, {"rank": 40, "id": "E19", "title": "Close-up of the blackened, heat-damaged leather ledger held in", "timecode": "E19 00:04.50\u201300:38.20", "duration_s": 33.7, "hook": "Close-up of the blackened, heat-damaged leather ledger held in Juliana's linen-bandaged hands.", "question": "[Visual Cliffhanger] Medium close-up of Juliana looking back one last time at the devastated doorway of her ruined sanctuary, hugging the ledger tightly.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Medium close-up of Juliana looking back one last time at the deva...) at 00:38.20, cutting away before the physical consequence or identity is revealed.", "listens": "54.2K", "genre": "Historical Fiction", "is_premium": true}, {"rank": 41, "id": "E31", "title": "Over-the-shoulder wide shot past Catherine looking down at Juliana", "timecode": "E31 00:13.80\u201300:50.80", "duration_s": 37.0, "hook": "Over-the-shoulder wide shot past Catherine looking down at Juliana shackled helplessly on the wet stone floor.", "question": "Do you remember?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (00:50.80) to force a new viewer to seek the answer in the next episode.", "listens": "52.0K", "genre": "Billionaire Romance", "is_premium": false}, {"rank": 42, "id": "E40", "title": "Of the wedding?", "timecode": "E40 00:44.10\u201301:21.00", "duration_s": 36.9, "hook": "Of the wedding?", "question": "[Visual Cliffhanger] The heavy creak of massive wooden cathedral doors swinging open, accompanied by swelling bridal organ music.", "why": "Delivers an immediate hook through LORD HARRINGTON inside 3 seconds. Ends on a visual cliffhanger beat (The heavy creak of massive wooden cathedral doors swinging open, ...) at 01:21.00, cutting away before the physical consequence or identity is revealed.", "listens": "49.8K", "genre": "Suspense & Betrayal", "is_premium": true}, {"rank": 43, "id": "E44", "title": "Medium two-shot of the Police Constable towering over Lord", "timecode": "E44 00:03.20\u201300:31.00", "duration_s": 27.8, "hook": "Medium two-shot of the Police Constable towering over Lord Sterling.", "question": "Do you know what this did to me?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (00:31.00) to force a new viewer to seek the answer in the next episode.", "listens": "47.6K", "genre": "Romantic Drama", "is_premium": false}, {"rank": 44, "id": "E46", "title": "Medium close-up of the High Priest holding the decree", "timecode": "E46 00:22.80\u201301:02.80", "duration_s": 40.0, "hook": "Medium close-up of the High Priest holding the decree, his gaze burning with disdain.", "question": "[Visual Cliffhanger] Close-up of Juliana lifting her chin, tearful yet burning with righteous fury.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Close-up of Juliana lifting her chin, tearful yet burning with ri...) at 01:02.80, cutting away before the physical consequence or identity is revealed.", "listens": "45.4K", "genre": "High Stakes Thriller", "is_premium": true}, {"rank": 45, "id": "E49", "title": "Frontal close-up of Catherine raising two fingers in the", "timecode": "E49 01:24.00\u201301:52.80", "duration_s": 28.8, "hook": "Frontal close-up of Catherine raising two fingers in the candlelight, her eyes burning with ruthless intent.", "question": "If I keep the hearing open, if I feed you every word spoken behind those doors, what happens to me when the Duke finds out a crowned priest conspired against him?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on FATHER THOMAS's spoken question (01:52.80) to force a new viewer to seek the answer in the next episode.", "listens": "43.2K", "genre": "Courtroom Mystery", "is_premium": false}, {"rank": 46, "id": "E50", "title": "High overhead birds-eye shot looking straight down at the", "timecode": "E50 00:00.00\u201300:56.50", "duration_s": 56.5, "hook": "High overhead birds-eye shot looking straight down at the unkempt bed, where Catherine lies curled in a silk chemise against Father Thomas's bare chest.", "question": "In another room no one uses?", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (00:56.50) to force a new viewer to seek the answer in the next episode.", "listens": "41.0K", "genre": "Family Rivalry", "is_premium": true}, {"rank": 47, "id": "E17", "title": "Close-up of Juliana's bandaged hands delicately pressing the white", "timecode": "E17 00:42.00\u201301:30.00", "duration_s": 48.0, "hook": "Close-up of Juliana's bandaged hands delicately pressing the white cloth against Alexander's wounded knuckles.", "question": "[Visual Cliffhanger] Juliana slowly raises her hand, gently twirling a lock of Alexander's long, unruly dark hair between her fingers.", "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Juliana slowly raises her hand, gently twirling a lock of Alexand...) at 01:30.00, cutting away before the physical consequence or identity is revealed.", "listens": "38.8K", "genre": "Historical Fiction", "is_premium": false}, {"rank": 48, "id": "E33", "title": "Close-up of the maid gasping out in desperate agony", "timecode": "E33 01:44.20\u201302:17.00", "duration_s": 32.8, "hook": "Close-up of the maid gasping out in desperate agony.", "question": "My testimony?!", "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on MAID's spoken question (02:17.00) to force a new viewer to seek the answer in the next episode.", "listens": "36.6K", "genre": "Billionaire Romance", "is_premium": true}, {"rank": 49, "id": "E7", "title": "You have no authority here. Leave", "timecode": "E7 01:01.80\u201301:33.80", "duration_s": 32.0, "hook": "You have no authority here. Leave.", "question": "Leaving? Gerald!", "why": "Starts immediately with JULIANA's conflict hook in the first 3 seconds. The cut terminates on ARISTOCRATIC WOMAN's spoken question (01:33.80) to force a new viewer to seek the answer in the next episode.", "listens": "34.4K", "genre": "Suspense & Betrayal", "is_premium": false}, {"rank": 50, "id": "E48", "title": "Two words, and that healer's crown rolls right back", "timecode": "E48 00:02.40\u201300:30.80", "duration_s": 28.4, "hook": "Two words, and that healer's crown rolls right back into the gutter where it belongs.", "question": "You sent for me, my lady?", "why": "Starts immediately with CATHERINE's conflict hook in the first 3 seconds. The cut terminates on AGNES's spoken question (00:30.80) to force a new viewer to seek the answer in the next episode.", "listens": "32.2K", "genre": "Romantic Drama", "is_premium": true}];
+    const COMPARE_DATA = {"12": {"episode": 12, "cut_end": "01:09.50", "cut_cue_id": 44, "cut_cue_label": "CAMERA DIRECTION", "cut_cue_text": "Camera sweeps across the gallery as the whispers swell to an overwhelming crescendo, freezing on Alexander's clenched fists.", "next_start": "01:09.80", "next_cue_id": 48, "next_speaker": "ALEXANDER", "next_text": "Juliana, no. Do not let them hurt you. I can handle the law.", "delta": "+0.30s", "analysis": "Cutting at 01:09.50 preserves peak visual and auditory cliffhanger. The earliest spoken line at 01:09.80 begins Alexander's legal counterattack."}, "1": {"episode": 1, "cut_end": "00:39.00", "cut_cue_id": 26, "cut_cue_label": "LADY JULIANA", "cut_cue_text": "Stop this wedding! That man already has a wife!", "next_start": "00:39.10", "next_cue_id": 27, "next_speaker": "LADY IN GOLD GOWN", "next_text": "Because he is marrying me.", "delta": "+0.10s", "analysis": "Cutting at 00:39.00 leaves the audience reeling on the accusation. Spoken line at 00:39.10 instantly reveals the wife's identity and kills curiosity."}, "36": {"episode": 36, "cut_end": "02:21.50", "cut_cue_id": 42, "cut_cue_label": "ALEXANDER", "cut_cue_text": "When?", "next_start": "02:22.00", "next_cue_id": 43, "next_speaker": "THE DETECTIVE", "next_text": "Midnight. Right after you left the estate.", "delta": "+0.50s", "analysis": "Cutting on Alexander's single word 'When?' traps the listener in high suspense before the alibi is shattered."}, "3": {"episode": 3, "cut_end": "00:40.40", "cut_cue_id": 29, "cut_cue_label": "LADY JULIANA", "cut_cue_text": "And what happens to me?", "next_start": "00:40.80", "next_cue_id": 30, "next_speaker": "DUCHESS ELEANOR", "next_text": "You will be sent to the northern convent at dawn.", "delta": "+0.40s", "analysis": "Terminating on Juliana's existential plea maximizes sibling betrayal tension before her punitive exile is announced."}, "10": {"episode": 10, "cut_end": "00:53.30", "cut_cue_id": 35, "cut_cue_label": "JULIANA", "cut_cue_text": "Does it hurt?", "next_start": "00:53.90", "next_cue_id": 36, "next_speaker": "ALEXANDER", "next_text": "Only when I remember who fired the bullet.", "delta": "+0.60s", "analysis": "Leaves the romantic/physical vulnerability hanging before the shooter's identity is hinted."}, "13": {"episode": 13, "cut_end": "01:58.88", "cut_cue_id": 51, "cut_cue_label": "VISUAL DIRECTION", "cut_cue_text": "Macro close-up holding on Juliana's bloodied fist firmly gripping the emerald ring against the frozen ground as the episode cuts to black.", "next_start": "01:59.20", "next_cue_id": 52, "next_speaker": "CARRIAGE DRIVER", "next_text": "My Lord! She is still breathing!", "delta": "+0.32s", "analysis": "Preserves the iconic visual cliffhanger. The subsequent line immediately reveals she survived the fall."}};
+
+    let activePromoIdx = 0;
+    let isPlaying = false;
+    let playbackSeconds = 0;
+    let playbackInterval = null;
+    let savedIds = new Set();
+
+    // Web Audio Synthesizer for rich interactive audio drama preview
+    let audioCtx = null;
+    let synthOsc = null;
+    let synthGain = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playTone(freq, duration) {
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    // Render cards
+    function renderCards() {
+      const trackTop10 = document.getElementById('trackTop10');
+      const trackPunchy = document.getElementById('trackPunchy');
+      const trackExtended = document.getElementById('trackExtended');
+      const trackCatalog = document.getElementById('trackCatalog');
+
+      trackTop10.innerHTML = '';
+      trackPunchy.innerHTML = '';
+      trackExtended.innerHTML = '';
+      trackCatalog.innerHTML = '';
+
+      PROMOS.forEach((p, idx) => {
+        const schemeIdx = (idx % 7) + 1;
+        const isSaved = savedIds.has(p.id);
+
+        // Top 10 Card
+        if (p.rank <= 10) {
+          const t10El = document.createElement('div');
+          t10El.className = 'top10-card';
+          t10El.innerHTML = `
+            <div class="top10-number">${p.rank}</div>
+            <div class="top10-inner" onclick="playPromo(${idx})">
+              <div class="card-cover art-scheme-${schemeIdx}">
+                <div class="cover-gradient-art">
+                  <div class="card-top-badges">
+                    <span class="badge-diamond-card">💎 DIAMOND</span>
+                    <button class="btn-bookmark ${isSaved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleSave('${p.id}')">
+                      ★
+                    </button>
+                  </div>
+                  <div class="cover-bottom-meta">
+                    <span class="duration-pill">${p.duration_s}s</span>
+                  </div>
+                </div>
+                <div class="card-play-overlay">
+                  <div class="circle-play-btn">▶</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <span class="card-genre">${p.genre}</span>
+                <div class="card-title" title="${p.title}">${p.id} • ${p.title}</div>
+                <div class="card-meta-row">
+                  <span class="listen-count">🎧 ${p.listens}</span>
+                  <span style="color:var(--accent-orange);font-weight:700;">PROMO</span>
+                </div>
+              </div>
+            </div>
+          `;
+          trackTop10.appendChild(t10El);
+        }
+
+        // Standard card generator
+        const makeCard = () => {
+          const card = document.createElement('div');
+          card.className = 'audio-card';
+          card.innerHTML = `
+            <div class="card-cover art-scheme-${schemeIdx}" onclick="playPromo(${idx})">
+              <div class="cover-gradient-art">
+                <div class="card-top-badges">
+                  ${p.is_premium ? '<span class="badge-diamond-card">💎 VIP</span>' : '<span></span>'}
+                  <button class="btn-bookmark ${isSaved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleSave('${p.id}')">
+                    ★
+                  </button>
+                </div>
+                <div class="cover-bottom-meta">
+                  <span class="duration-pill">${p.duration_s}s</span>
+                </div>
+              </div>
+              <div class="card-play-overlay">
+                <div class="circle-play-btn">▶</div>
+              </div>
+            </div>
+            <div class="card-body" onclick="playPromo(${idx})">
+              <span class="card-genre">${p.genre}</span>
+              <div class="card-title" title="${p.title}">${p.id} • ${p.title}</div>
+              <div class="card-meta-row">
+                <span class="listen-count">🎧 ${p.listens}</span>
+                <span style="font-size:0.7rem;color:var(--text-muted);">${p.timecode.split(' ')[1] || ''}</span>
+              </div>
+            </div>
+          `;
+          return card;
+        };
+
+        // Punchy
+        if (p.duration_s <= 35) {
+          trackPunchy.appendChild(makeCard());
+        } else {
+          trackExtended.appendChild(makeCard());
+        }
+
+        // Catalog
+        trackCatalog.appendChild(makeCard());
+      });
+    }
+
+    // Playback Controller
+    function playPromo(idx) {
+      activePromoIdx = idx;
+      const p = PROMOS[idx];
+
+      document.getElementById('playerThumb').innerText = p.id;
+      document.getElementById('playerTitle').innerText = `${p.id} • ${p.title}`;
+      document.getElementById('playerSubtitle').innerHTML = `
+        <span>Rank #${p.rank} • ${p.duration_s}s</span>
+        <span>•</span>
+        <span>${p.question}</span>
+      `;
+      document.getElementById('totalTimeTxt').innerText = formatSeconds(p.duration_s);
+
+      playbackSeconds = 0;
+      startPlayback();
+
+      // Audio feedback tone
+      playTone(440, 0.4);
+    }
+
+    function startPlayback() {
+      isPlaying = true;
+      document.getElementById('playIcon').style.display = 'none';
+      document.getElementById('pauseIcon').style.display = 'block';
+
+      clearInterval(playbackInterval);
+      playbackInterval = setInterval(() => {
+        const p = PROMOS[activePromoIdx];
+        if (playbackSeconds < p.duration_s) {
+          playbackSeconds += 0.5;
+          updatePlayerUI();
+          if (Math.floor(playbackSeconds) % 4 === 0) {
+            playTone(220 + (playbackSeconds * 12), 0.15);
+          }
+        } else {
+          pausePlayback();
+        }
+      }, 500);
+    }
+
+    function pausePlayback() {
+      isPlaying = false;
+      document.getElementById('playIcon').style.display = 'block';
+      document.getElementById('pauseIcon').style.display = 'none';
+      clearInterval(playbackInterval);
+    }
+
+    function togglePlayPause() {
+      if (isPlaying) {
+        pausePlayback();
+      } else {
+        startPlayback();
+      }
+    }
+
+    function seekRelative(delta) {
+      const p = PROMOS[activePromoIdx];
+      playbackSeconds = Math.max(0, Math.min(p.duration_s, playbackSeconds + delta));
+      updatePlayerUI();
+      playTone(520, 0.1);
+    }
+
+    function handleSeek(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      const p = PROMOS[activePromoIdx];
+      playbackSeconds = pct * p.duration_s;
+      updatePlayerUI();
+    }
+
+    function updatePlayerUI() {
+      const p = PROMOS[activePromoIdx];
+      const pct = (playbackSeconds / p.duration_s) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('currTimeTxt').innerText = formatSeconds(playbackSeconds);
+    }
+
+    function formatSeconds(s) {
+      const mins = Math.floor(s / 60);
+      const secs = Math.floor(s % 60);
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function toggleSave(id) {
+      if (savedIds.has(id)) {
+        savedIds.delete(id);
+      } else {
+        savedIds.add(id);
+      }
+      document.getElementById('savedCount').innerText = savedIds.size;
+      renderCards();
+    }
+
+    function scrollTrack(id, amt) {
+      document.getElementById(id).scrollBy({ left: amt, behavior: 'smooth' });
+    }
+
+    // Modals
+    function openSimulatorModal(idx) {
+      const p = PROMOS[idx || activePromoIdx];
+      document.getElementById('simHookText').innerText = `"${p.hook}"`;
+      document.getElementById('simQuestionText').innerText = `"${p.question}"`;
+      document.getElementById('simEpisodeSwipe').innerText = `Swipe up for ${p.id} (${p.timecode})`;
+      document.getElementById('simModal').classList.add('open');
+    }
+
+    function openCompareModal(epNum) {
+      switchCompareEp(epNum || '12');
+      document.getElementById('compareModal').classList.add('open');
+    }
+
+    function switchCompareEp(epNum, btnEl) {
+      const data = COMPARE_DATA[epNum] || COMPARE_DATA['12'];
+      const container = document.getElementById('compareGridContent');
+      const analysisBox = document.getElementById('compareAnalysisBox');
+
+      container.innerHTML = `
+        <div class="compare-side-card chosen">
+          <span style="background:rgba(0,229,255,0.15);color:var(--accent-cyan);font-size:0.7rem;font-weight:800;padding:0.2rem 0.5rem;border-radius:4px;">
+            ✓ CHOSEN OUT-POINT (CUE #${data.cut_cue_id} • ${data.cut_cue_label})
+          </span>
+          <div style="font-size:1.05rem;font-weight:700;color:#FFF;margin:0.75rem 0 0.5rem 0;">
+            "${data.cut_cue_text}"
+          </div>
+          <div style="font-size:0.78rem;color:var(--accent-cyan);">
+            Ends at ${data.cut_end} • Cuts precisely to preserve dramatic mystery.
+          </div>
+        </div>
+
+        <div class="compare-side-card next">
+          <span style="background:rgba(255,51,102,0.15);color:var(--accent-danger);font-size:0.7rem;font-weight:800;padding:0.2rem 0.5rem;border-radius:4px;">
+            ⚡ NEXT SPOKEN LINE (${data.delta} AFTER CUT)
+          </span>
+          <div style="font-size:1.05rem;font-weight:700;color:#FFF;margin:0.75rem 0 0.5rem 0;">
+            "${data.next_text}"
+          </div>
+          <div style="font-size:0.78rem;color:var(--accent-danger);">
+            Starts at ${data.next_start} • Cue #${data.next_cue_id} (${data.next_speaker})
+          </div>
+        </div>
+      `;
+
+      analysisBox.innerHTML = `<strong>Editorial Analysis:</strong> ${data.analysis}`;
+
+      if (btnEl) {
+        btnEl.parentElement.querySelectorAll('.nav-pill').forEach(el => el.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    function handleGlobalSearch(term) {
+      term = term.toLowerCase().trim();
+      const allCards = document.querySelectorAll('.audio-card, .top10-card');
+      allCards.forEach(c => {
+        const txt = c.innerText.toLowerCase();
+        c.style.display = txt.includes(term) ? '' : 'none';
+      });
+    }
+
+    function filterCategory(cat, el) {
+      document.querySelectorAll('.kuku-subnav .nav-pill').forEach(p => p.classList.remove('active'));
+      if (el) el.classList.add('active');
+
+      const sTop10 = document.getElementById('sectionTop10');
+      const sPunchy = document.getElementById('sectionPunchy');
+      const sExt = document.getElementById('sectionExtended');
+      const sCat = document.getElementById('sectionCatalog');
+
+      if (cat === 'top10') {
+        sTop10.scrollIntoView({ behavior: 'smooth' });
+      } else if (cat === 'punchy') {
+        sPunchy.scrollIntoView({ behavior: 'smooth' });
+      } else if (cat === 'extended') {
+        sExt.scrollIntoView({ behavior: 'smooth' });
+      } else if (cat === 'saved') {
+        sCat.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCards();
+    });
+  </script>
+</body>
+</html>
