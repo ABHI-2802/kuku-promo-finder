@@ -462,15 +462,17 @@ def _ai_configured(url: str, model: str, key: str) -> bool:
 # ════════════════════════════════════════════════════════════════════════════
 with st.sidebar:
     st.markdown(
-        """
-        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.8rem;">
-            <div style="background:linear-gradient(135deg, #FF6B00, #FFB800); width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px;">🎬</div>
-            <div>
-                <strong style="font-size:1.1rem; color:#FFF; font-family:'Space Grotesk'">KUKU STUDIO</strong><br>
-                <span style="font-size:0.75rem; color:#64748B;">Microdrama Editorial Core</span>
+        textwrap.dedent(
+            """
+            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.8rem;">
+                <div style="background:linear-gradient(135deg, #FF6B00, #FFB800); width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px;">🎬</div>
+                <div>
+                    <strong style="font-size:1.1rem; color:#FFF; font-family:'Space Grotesk'">KUKU STUDIO</strong><br>
+                    <span style="font-size:0.75rem; color:#64748B;">Microdrama Editorial Core</span>
+                </div>
             </div>
-        </div>
-        """,
+            """
+        ),
         unsafe_allow_html=True,
     )
     st.markdown("---")
@@ -483,12 +485,14 @@ with st.sidebar:
     st.markdown("#### ⚡ Editorial Engine")
     if _srv_ai:
         st.markdown(
-            """
-            <div style="background:rgba(0, 245, 155, 0.08); border:1px solid rgba(0, 245, 155, 0.25); border-radius:6px; padding:0.6rem 0.8rem; margin-bottom:0.8rem;">
-                <span style="color:#00F59B; font-weight:700; font-size:0.8rem;">● AI MODEL CONNECTED</span><br>
-                <span style="color:#94A3B8; font-size:0.75rem;">Server credentials verified.</span>
-            </div>
-            """,
+            textwrap.dedent(
+                """
+                <div style="background:rgba(0, 245, 155, 0.08); border:1px solid rgba(0, 245, 155, 0.25); border-radius:6px; padding:0.6rem 0.8rem; margin-bottom:0.8rem;">
+                    <span style="color:#00F59B; font-weight:700; font-size:0.8rem;">● AI MODEL CONNECTED</span><br>
+                    <span style="color:#94A3B8; font-size:0.75rem;">Server credentials verified.</span>
+                </div>
+                """
+            ),
             unsafe_allow_html=True,
         )
         ai_url, ai_model, ai_key = _srv_url, _srv_model, _srv_key
@@ -510,16 +514,18 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown(
-        """
-        <div style="font-size:0.8rem; color:#94A3B8; line-height:1.5;">
-        <strong style="color:#E2E8F0;">Editorial Rules Enforced:</strong><br>
-        • Exact 20.0s – 60.0s continuous playback<br>
-        • 3-Second Retention Hook identification<br>
-        • Unresolved spoken question out-point<br>
-        • Zero mid-speech cuts (safe boundary check)<br>
-        • Next-beat spoiler leak comparison
-        </div>
-        """,
+        textwrap.dedent(
+            """
+            <div style="font-size:0.8rem; color:#94A3B8; line-height:1.5;">
+            <strong style="color:#E2E8F0;">Editorial Rules Enforced:</strong><br>
+            • Exact 20.0s – 60.0s continuous playback<br>
+            • 3-Second Retention Hook identification<br>
+            • Unresolved spoken question out-point<br>
+            • Zero mid-speech cuts (safe boundary check)<br>
+            • Next-beat spoiler leak comparison
+            </div>
+            """
+        ),
         unsafe_allow_html=True,
     )
     st.markdown("---")
@@ -529,23 +535,25 @@ with st.sidebar:
 # Studio Header & Navigation
 # ════════════════════════════════════════════════════════════════════════════
 st.markdown(
-    """
-    <div class="studio-brand-bar">
-        <div>
-            <div class="studio-title">
-                <span>KUKU PROMO FINDER</span>
-                <span style="font-size:0.8rem; font-family:'JetBrains Mono'; background:rgba(255,255,255,0.06); padding:0.2rem 0.5rem; border-radius:4px; color:#94A3B8;">STUDIO EDITION</span>
+    textwrap.dedent(
+        """
+        <div class="studio-brand-bar">
+            <div>
+                <div class="studio-title">
+                    <span>KUKU PROMO FINDER</span>
+                    <span style="font-size:0.8rem; font-family:'JetBrains Mono'; background:rgba(255,255,255,0.06); padding:0.2rem 0.5rem; border-radius:4px; color:#94A3B8;">STUDIO EDITION</span>
+                </div>
+                <div style="font-size:0.82rem; color:#94A3B8; margin-top:0.2rem;">
+                    Automated 20–60s microdrama promotional cut extraction, retention scoring & spoiler verification
+                </div>
             </div>
-            <div style="font-size:0.82rem; color:#94A3B8; margin-top:0.2rem;">
-                Automated 20–60s microdrama promotional cut extraction, retention scoring & spoiler verification
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span>PROMO CORE ONLINE</span>
             </div>
         </div>
-        <div class="live-indicator">
-            <span class="live-dot"></span>
-            <span>PROMO CORE ONLINE</span>
-        </div>
-    </div>
-    """,
+        """
+    ),
     unsafe_allow_html=True,
 )
 
@@ -673,30 +681,32 @@ if st.session_state.results is not None:
 
     # ── Live KPI Metrics Bar ──
     st.markdown(
-        f"""
-        <div class="kpi-grid">
-            <div class="kpi-card">
-                <div class="kpi-label">Ranked Promos</div>
-                <div class="kpi-value" style="color:var(--accent-kuku);">{n_promos}</div>
-                <div class="kpi-sub">Across {n_eps} episodes</div>
+        textwrap.dedent(
+            f"""
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Ranked Promos</div>
+                    <div class="kpi-value" style="color:var(--accent-kuku);">{n_promos}</div>
+                    <div class="kpi-sub">Across {n_eps} episodes</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Speech Boundary Check</div>
+                    <div class="kpi-value" style="color:var(--accent-emerald);">100%</div>
+                    <div class="kpi-sub">0 lines split mid-speech</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Episodes Passed</div>
+                    <div class="kpi-value" style="color:var(--accent-gold);">{n_passes}</div>
+                    <div class="kpi-sub">Weak cliffhangers skipped</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Indexed Cues</div>
+                    <div class="kpi-value" style="color:var(--accent-cyan);">{total_cues}</div>
+                    <div class="kpi-sub">Audio/Speech/Action synchronized</div>
+                </div>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-label">Speech Boundary Check</div>
-                <div class="kpi-value" style="color:var(--accent-emerald);">100%</div>
-                <div class="kpi-sub">0 lines split mid-speech</div>
-            </div>
-            <div class="kpi-card">
-                <div class="kpi-label">Episodes Passed</div>
-                <div class="kpi-value" style="color:var(--accent-gold);">{n_passes}</div>
-                <div class="kpi-sub">Weak cliffhangers skipped</div>
-            </div>
-            <div class="kpi-card">
-                <div class="kpi-label">Indexed Cues</div>
-                <div class="kpi-value" style="color:var(--accent-cyan);">{total_cues}</div>
-                <div class="kpi-sub">Audio/Speech/Action synchronized</div>
-            </div>
-        </div>
-        """,
+            """
+        ),
         unsafe_allow_html=True,
     )
 
@@ -757,64 +767,55 @@ if st.session_state.results is not None:
 
     # ── Render Each Master Promo Card ──
     for p in filtered_results:
-        # Segment capsules HTML
-        capsules_html = "".join(
-            f'<div class="segment-capsule">'
-            f'<span>📼 Episode {s["episode"]}</span>'
-            f'<span style="color:var(--accent-cyan);">{s["start"]} ➔ {s["end"]}</span>'
-            f'<span style="color:#94A3B8;">({s["duration_s"]:.1f}s)</span>'
-            f'</div>'
-            for s in p["segments"]
-        )
+        with st.container(border=True):
+            # Header Row
+            c_rank, c_title, c_dur = st.columns([1.2, 5, 2])
+            with c_rank:
+                st.markdown(
+                    f'<span style="background:linear-gradient(135deg, #FF6B00, #D84315); color:#FFF; font-weight:800; font-size:0.85rem; padding:0.3rem 0.8rem; border-radius:20px; font-family:\'Space Grotesk\', sans-serif;">RANK #{p["rank"]}</span>',
+                    unsafe_allow_html=True,
+                )
+            with c_title:
+                st.markdown(f"### {p['id']} · {p['title']}")
+            with c_dur:
+                st.markdown(
+                    f'<div style="text-align:right;"><span style="font-family:\'JetBrains Mono\'; font-size:0.9rem; font-weight:700; color:#00E5FF; background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.3); padding:0.3rem 0.75rem; border-radius:6px;">⏱ {p["duration_s"]:.2f}s TOTAL</span></div>',
+                    unsafe_allow_html=True,
+                )
 
-        st.markdown(
-            textwrap.dedent(
-                f"""
-                <div class="promo-master-card">
-                    <div class="promo-header-flex">
-                        <div>
-                            <span class="rank-badge-pill">RANK #{p['rank']}</span>
-                            <strong style="font-size:1.25rem; font-family:'Space Grotesk'; color:#FFF; margin-left:0.6rem;">{p['id']} · {p['title']}</strong>
-                        </div>
-                        <div class="promo-duration-pill">
-                            <span>⏱</span>
-                            <span>{p['duration_s']:.2f}s TOTAL</span>
-                        </div>
-                    </div>
-                    
-                    <div class="segment-track-bar">
-                        {capsules_html}
-                    </div>
+            # Segments timeline bar
+            seg_pills = " ".join(
+                f'<span style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:0.25rem 0.65rem; font-family:\'JetBrains Mono\'; font-size:0.82rem; color:#E2E8F0; margin-right:0.4rem;">📼 Ep {s["episode"]} &nbsp;<b>{s["start"]} ➔ {s["end"]}</b> ({s["duration_s"]:.1f}s)</span>'
+                for s in p["segments"]
+            )
+            st.markdown(f'<div style="margin: 0.6rem 0 1rem 0;">{seg_pills}</div>', unsafe_allow_html=True)
 
-                    <div class="editorial-pillars">
-                        <div class="pillar-box hook-box">
-                            <div class="pillar-tag hook-tag">
-                                <span>⚡</span>
-                                <span>FIRST 3-SECOND RETENTION HOOK</span>
-                            </div>
-                            <div class="pillar-body">
-                                "{p['hook']}"
-                            </div>
-                        </div>
-                        <div class="pillar-box question-box">
-                            <div class="pillar-tag question-tag">
-                                <span>❓</span>
-                                <span>UNANSWERED CLIFFHANGER QUESTION</span>
-                            </div>
-                            <div class="pillar-body">
-                                "{p['question']}"
-                            </div>
-                        </div>
-                    </div>
+            # Two Key Pillars: Hook & Question
+            col_hook, col_q = st.columns(2)
+            with col_hook:
+                st.markdown(
+                    f'<div style="background:rgba(10,14,22,0.7); border:1px solid rgba(0,229,255,0.25); border-left:4px solid #00E5FF; border-radius:8px; padding:0.9rem 1rem; min-height:100px;">'
+                    f'<div style="color:#00E5FF; font-size:0.75rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.4rem;">⚡ FIRST 3-SECOND RETENTION HOOK</div>'
+                    f'<div style="font-size:1.02rem; font-weight:600; color:#F0F4FC; line-height:1.4;">"{p["hook"]}"</div>'
+                    f'</div>',
+                    unsafe_allow_html=True,
+                )
+            with col_q:
+                st.markdown(
+                    f'<div style="background:rgba(10,14,22,0.7); border:1px solid rgba(255,184,0,0.25); border-left:4px solid #FFB800; border-radius:8px; padding:0.9rem 1rem; min-height:100px;">'
+                    f'<div style="color:#FFB800; font-size:0.75rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.4rem;">❓ UNANSWERED CLIFFHANGER QUESTION</div>'
+                    f'<div style="font-size:1.02rem; font-weight:600; color:#F0F4FC; line-height:1.4;">"{p["question"]}"</div>'
+                    f'</div>',
+                    unsafe_allow_html=True,
+                )
 
-                    <div class="why-section">
-                        <strong style="color:var(--accent-emerald);">💡 Editorial Rationale:</strong> {p['why']}
-                    </div>
-                </div>
-                """
-            ),
-            unsafe_allow_html=True,
-        )
+            # Why It Works
+            st.markdown(
+                f'<div style="background:rgba(0,245,155,0.04); border:1px solid rgba(0,245,155,0.2); border-left:4px solid #00F59B; border-radius:8px; padding:0.75rem 1rem; font-size:0.88rem; color:#CBD5E1; margin:0.8rem 0;">'
+                f'<strong style="color:#00F59B;">💡 Editorial Rationale:</strong> {p["why"]}'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
 
         # ── Interactive Split-Screen & Smartphone Simulator Inside Expander ──
         with st.expander(f"🔬 Studio Inspection Lab · Compare Endings & 9:16 Feed Preview — {p['id']} ({p['title']})"):
@@ -822,12 +823,14 @@ if st.session_state.results is not None:
 
             with tab_inspect_compare:
                 st.markdown(
-                    """
-                    <div style="font-size:0.85rem; color:#94A3B8; margin-bottom:0.8rem;">
-                    Inspect the chosen cut against the subsequent line in the screenplay. 
-                    A great microdrama promo ends precisely before the answer is revealed.
-                    </div>
-                    """,
+                    textwrap.dedent(
+                        """
+                        <div style="font-size:0.85rem; color:#94A3B8; margin-bottom:0.8rem;">
+                        Inspect the chosen cut against the subsequent line in the screenplay. 
+                        A great microdrama promo ends precisely before the answer is revealed.
+                        </div>
+                        """
+                    ),
                     unsafe_allow_html=True,
                 )
                 comps = compare_endings(pack, p)
@@ -840,36 +843,35 @@ if st.session_state.results is not None:
                     spoiler_words = [w.lower() for w in p["question"].split() if len(w) > 4]
                     has_spoiler = next_c and any(w in next_c["text"].lower() for w in spoiler_words)
 
-                    st.markdown(
-                        textwrap.dedent(
-                            f"""
-                            <div style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#94A3B8; margin-bottom:0.4rem;">
-                                SEGMENT: Episode {ep_num} [Cue #{final_c['id']} ➔ Cue #{next_c['id'] if next_c else 'END'}]
-                            </div>
-                            <div class="lab-split-grid">
-                                <div class="lab-card lab-chosen">
-                                    <span class="lab-badge badge-chosen">✓ CHOSEN OUT-POINT (CUE #{final_c['id']} · {final_c['label']})</span>
-                                    <div style="font-size:1.05rem; font-weight:600; color:#FFF; margin-bottom:0.5rem;">
-                                        "{final_c['text']}"
-                                    </div>
-                                    <div style="font-size:0.78rem; color:var(--accent-cyan);">
-                                        Ends at {timecode(final_c['b'])} • Leaves audience hanging on the cliffhanger.
-                                    </div>
-                                </div>
-                                <div class="lab-card lab-next">
-                                    <span class="lab-badge badge-next">{'⚠️ SPOILER RISK' if has_spoiler else '⚡ NEXT SPOKEN LINE'} (CUE #{next_c['id'] if next_c else 'None'} · {next_c['label'] if next_c else 'N/A'})</span>
-                                    <div style="font-size:1.05rem; font-weight:600; color:{'#FF6B8B' if has_spoiler else '#CBD5E1'}; margin-bottom:0.5rem;">
-                                        "{next_c['text'] if next_c else 'No further spoken dialogue in this episode.'}"
-                                    </div>
-                                    <div style="font-size:0.78rem; color:{'#FF2E63' if has_spoiler else '#64748B'};">
-                                        {'🚨 Warning: Cutting here reveals the answer and kills mystery!' if has_spoiler else 'Safe boundary: Extends tension without premature reveal.'}
-                                    </div>
-                                </div>
-                            </div>
-                            """
-                        ),
-                        unsafe_allow_html=True,
-                    )
+                    st.markdown(f'<div style="font-family:\'JetBrains Mono\'; font-size:0.8rem; color:#94A3B8; margin-bottom:0.4rem;">SEGMENT: Episode {ep_num} [Cue #{final_c["id"]} ➔ Cue #{next_c["id"] if next_c else "END"}]</div>', unsafe_allow_html=True)
+
+                    c_left, c_right = st.columns(2)
+                    with c_left:
+                        st.markdown(
+                            f'<div style="background:rgba(0,229,255,0.03); border:1px solid rgba(0,229,255,0.25); border-top:3px solid #00E5FF; border-radius:8px; padding:1rem; height:100%;">'
+                            f'<span style="background:rgba(0,229,255,0.15); color:#00E5FF; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.55rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem;">✓ CHOSEN OUT-POINT (CUE #{final_c["id"]} · {final_c["label"]})</span>'
+                            f'<div style="font-size:1.05rem; font-weight:600; color:#FFF; margin-bottom:0.5rem;">"{final_c["text"]}"</div>'
+                            f'<div style="font-size:0.78rem; color:#00E5FF;">Ends at {timecode(final_c["b"])} • Leaves audience hanging on the cliffhanger.</div>'
+                            f'</div>',
+                            unsafe_allow_html=True,
+                        )
+                    with c_right:
+                        border_color = "#FF2E63" if has_spoiler else "rgba(255,255,255,0.15)"
+                        badge_bg = "rgba(255,46,99,0.15)" if has_spoiler else "rgba(255,255,255,0.08)"
+                        badge_color = "#FF2E63" if has_spoiler else "#94A3B8"
+                        status_text = "⚠️ SPOILER RISK" if has_spoiler else "⚡ NEXT SPOKEN LINE"
+                        caption_text = "🚨 Warning: Cutting here reveals the answer and kills mystery!" if has_spoiler else "Safe boundary: Extends tension without premature reveal."
+                        next_text = next_c["text"] if next_c else "No further spoken dialogue in this episode."
+                        next_label = f"CUE #{next_c['id']} · {next_c['label']}" if next_c else "N/A"
+
+                        st.markdown(
+                            f'<div style="background:rgba(255,46,99,0.03); border:1px solid {border_color}; border-top:3px solid {border_color}; border-radius:8px; padding:1rem; height:100%;">'
+                            f'<span style="background:{badge_bg}; color:{badge_color}; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.55rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem;">{status_text} ({next_label})</span>'
+                            f'<div style="font-size:1.05rem; font-weight:600; color:{"#FF6B8B" if has_spoiler else "#CBD5E1"}; margin-bottom:0.5rem;">"{next_text}"</div>'
+                            f'<div style="font-size:0.78rem; color:{"#FF2E63" if has_spoiler else "#64748B"};">{caption_text}</div>'
+                            f'</div>',
+                            unsafe_allow_html=True,
+                        )
 
             with tab_inspect_sim:
                 st.markdown(
