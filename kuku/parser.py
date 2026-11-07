@@ -62,11 +62,20 @@ def safe_boundary(cues: List[dict], point: int) -> bool:
     return not any(c["a"] < point < c["b"] for c in cues if spoken(c))
 
 
+def earliest_spoken_after(cues: List[dict], cut_end_cs: int) -> Optional[dict]:
+    """
+    Return the earliest spoken line starting at or after the cut time (c['a'] >= cut_end_cs).
+    """
+    candidates = [c for c in cues if spoken(c) and c["a"] >= cut_end_cs]
+    if not candidates:
+        return None
+    return min(candidates, key=lambda c: (c["a"], c["id"]))
+
+
 def next_spoken_cue(cues: List[dict], after_id: int) -> Optional[dict]:
-    """Return the first spoken cue whose sequential ID is > after_id, or None."""
-    for c in cues:
-        if c["id"] > after_id and spoken(c):
-            return c
+    """Legacy helper: return earliest spoken cue starting after cue after_id's end."""
+    if 1 <= after_id <= len(cues):
+        return earliest_spoken_after(cues, cues[after_id - 1]["b"])
     return None
 
 

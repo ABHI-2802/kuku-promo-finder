@@ -1,0 +1,711 @@
+{
+  "origin": "Kuku PS1 Full Show Production Run (Offline Rules Engine)",
+  "pack_sha256": "36920cb48b2226180c639bfddfa1833b8b518b5a3528ed45cc9c4560cbf6280b",
+  "reviews": [
+    {
+      "episode": 1,
+      "note": "Nominated for show slate (13 signal points; Spoken Question).",
+      "pick": {
+        "start": 31,
+        "end": 67,
+        "title": "Close-up on Juliana clutching her chest, her sorrow turning",
+        "hook": "Close-up on Juliana clutching her chest, her sorrow turning into burning outrage.",
+        "question": "Embarrassed you?",
+        "rule_points": 13,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY JULIANA's spoken question (01:38.20) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 2,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 35,
+        "end": 55,
+        "title": "Tight insert on Clarissa's gloved fingers contemptuously pinching the",
+        "hook": "Tight insert on Clarissa's gloved fingers contemptuously pinching the satin folds of Juliana's gown.",
+        "question": "Dignity?",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY JULIANA's spoken question (01:16.40) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 3,
+      "note": "Nominated for show slate (18 signal points; Spoken Question).",
+      "pick": {
+        "start": 6,
+        "end": 29,
+        "title": "Medium close-up on Juliana looking across at her sister",
+        "hook": "Medium close-up on Juliana looking across at her sister with wounded pride.",
+        "question": "And what happens to me?",
+        "rule_points": 18,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY JULIANA's spoken question (00:40.40) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 4,
+      "note": "Nominated for show slate (11 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 94,
+        "end": 109,
+        "title": "Tight close-up of Gerald, eyes wide with speechless shock",
+        "hook": "Tight close-up of Gerald, eyes wide with speechless shock and wounded pride.",
+        "question": "[Visual Cliffhanger] Juliana and the Mysterious Bearded Man walk hand-in-hand through the towering doors into the sunlight together, turning their backs on the ruined wedding as the screen fades out.",
+        "rule_points": 11,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Juliana and the Mysterious Bearded Man walk hand-in-hand through ...) at 02:31.40, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 5,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 1,
+        "end": 18,
+        "title": "Close-up on Lady Juliana's hands clutching an ancient, brass-bound",
+        "hook": "Close-up on Lady Juliana's hands clutching an ancient, brass-bound leather ledger against the skirt of her white wedding gown as she walks.",
+        "question": "You truly mean it? You are my father!",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:33.40) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 6,
+      "note": "Nominated for show slate (14 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 71,
+        "end": 96,
+        "title": "He strikes flint and steel together over dry kindling",
+        "hook": "He strikes flint and steel together over dry kindling, igniting bright sparks that catch into a flickering flame.",
+        "question": "[Visual Cliffhanger] Close-up on the crackling flames and glowing embers of the fireplace, slowly fading to black as the music swells warmly.",
+        "rule_points": 14,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Close-up on the crackling flames and glowing embers of the firepl...) at 01:55.00, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 7,
+      "note": "Nominated for show slate (4 signal points; Spoken Question).",
+      "pick": {
+        "start": 30,
+        "end": 49,
+        "title": "You have no authority here. Leave",
+        "hook": "You have no authority here. Leave.",
+        "question": "Leaving? Gerald!",
+        "rule_points": 4,
+        "why": "Starts immediately with JULIANA's conflict hook in the first 3 seconds. The cut terminates on ARISTOCRATIC WOMAN's spoken question (01:33.80) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 8,
+      "note": "Nominated for show slate (9 signal points; Spoken Question).",
+      "pick": {
+        "start": 10,
+        "end": 35,
+        "title": "Low-angle medium close-up of Juliana looking up toward Alexander",
+        "hook": "Low-angle medium close-up of Juliana looking up toward Alexander in pleasant surprise.",
+        "question": "You prefer looking like a forest hermit?",
+        "rule_points": 9,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:42.00) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 9,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 5,
+        "end": 26,
+        "title": "Close-up of Alexander turning toward the doorway, his eyes",
+        "hook": "Close-up of Alexander turning toward the doorway, his eyes sharp and vigilant.",
+        "question": "You're certain?",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on ALEXANDER's spoken question (00:35.80) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 10,
+      "note": "Nominated for show slate (18 signal points; Spoken Question).",
+      "pick": {
+        "start": 8,
+        "end": 40,
+        "title": "Close-up of Alexander struggling to breathe, clutching his bloodied",
+        "hook": "Close-up of Alexander struggling to breathe, clutching his bloodied coat over his chest.",
+        "question": "Does it hurt?",
+        "rule_points": 18,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:53.30) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 11,
+      "note": "Nominated for show slate (13 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 59,
+        "end": 85,
+        "title": "Those are all I have left!",
+        "hook": "Those are all I have left!",
+        "question": "[Visual Cliffhanger] Tight macro shot of the gold pocket watch dangling and swaying gently from the Constable's fingers on its long chain, with Gerald blurred in the background grinning with sinister triumph as the scene hangs in a devastating freeze-frame.",
+        "rule_points": 13,
+        "why": "Delivers an immediate hook through JULIANA inside 3 seconds. Ends on a visual cliffhanger beat (Tight macro shot of the gold pocket watch dangling and swaying ge...) at 01:52.75, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 12,
+      "note": "Nominated for show slate (13 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 40,
+        "end": 55,
+        "title": "Medium shot of Gerald tapping his whip against his",
+        "hook": "Medium shot of Gerald tapping his whip against his palm and laughing heartily beside the Constable.",
+        "question": "[Visual Cliffhanger] Juliana locks eyes with Clarissa without flinching as the scene freezes on her brave, sacrificial defiance.",
+        "rule_points": 13,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Juliana locks eyes with Clarissa without flinching as the scene f...) at 01:27.21, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 13,
+      "note": "Nominated for show slate (18 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 60,
+        "end": 75,
+        "title": "Juliana!",
+        "hook": "Juliana!",
+        "question": "[Visual Cliffhanger] Macro close-up holding on Juliana's bloodied fist firmly gripping the emerald ring against the frozen ground as the episode cuts to black.",
+        "rule_points": 18,
+        "why": "Delivers an immediate hook through ALEXANDER inside 3 seconds. Ends on a visual cliffhanger beat (Macro close-up holding on Juliana's bloodied fist firmly gripping...) at 01:58.88, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 14,
+      "note": "Nominated for show slate (16 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 28,
+        "end": 50,
+        "title": "Warm interior wide shot in front of a roaring",
+        "hook": "Warm interior wide shot in front of a roaring hearth fire. Juliana sits on a wooden chair while Alexander kneels on the floor before her, a washbasin of water between them.",
+        "question": "[Visual Cliffhanger] Alexander's muscular arm drops into frame beside the bloody bucket; his scarred knuckles slowly and tightly clench into an iron fist of brewing vengeance.",
+        "rule_points": 16,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Alexander's muscular arm drops into frame beside the bloody bucke...) at 01:27.00, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 15,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 34,
+        "end": 53,
+        "title": "The Thug with Cap violently shoves Juliana back with",
+        "hook": "The Thug with Cap violently shoves Juliana back with both hands; she cries out as she loses her balance and crashes hard onto the wet stone path.",
+        "question": "What? You want to fight us, veteran?",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on THUG WITH CAP's spoken question (01:22.40) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 16,
+      "note": "Nominated for show slate (15 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 11,
+        "end": 50,
+        "title": "Stay behind me",
+        "hook": "Stay behind me.",
+        "question": "[Visual Cliffhanger] Close-up on Alexander's hand hanging by his coat. Fresh blood trickles from his split knuckles, and he slowly curls his fingers into a tight fist.",
+        "rule_points": 15,
+        "why": "Delivers an immediate hook through ALEXANDER inside 3 seconds. Ends on a visual cliffhanger beat (Close-up on Alexander's hand hanging by his coat. Fresh blood tri...) at 01:03.00, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 17,
+      "note": "Nominated for show slate (7 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 32,
+        "end": 55,
+        "title": "Close-up of Juliana's bandaged hands delicately pressing the white",
+        "hook": "Close-up of Juliana's bandaged hands delicately pressing the white cloth against Alexander's wounded knuckles.",
+        "question": "[Visual Cliffhanger] Juliana slowly raises her hand, gently twirling a lock of Alexander's long, unruly dark hair between her fingers.",
+        "rule_points": 7,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Juliana slowly raises her hand, gently twirling a lock of Alexand...) at 01:30.00, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 18,
+      "note": "Nominated for show slate (15 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 36,
+        "end": 62,
+        "title": "Low-angle shot pointing up at the ceiling beams overhead",
+        "hook": "Low-angle shot pointing up at the ceiling beams overhead, engulfed in roaring fire and splitting down the center.",
+        "question": "[Visual Cliffhanger] Wide interior shot as the entire parlor collapses into an uncontrollable inferno of roaring flames.",
+        "rule_points": 15,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Wide interior shot as the entire parlor collapses into an uncontr...) at 01:59.80, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 19,
+      "note": "Nominated for show slate (9 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 4,
+        "end": 23,
+        "title": "Close-up of the blackened, heat-damaged leather ledger held in",
+        "hook": "Close-up of the blackened, heat-damaged leather ledger held in Juliana's linen-bandaged hands.",
+        "question": "[Visual Cliffhanger] Medium close-up of Juliana looking back one last time at the devastated doorway of her ruined sanctuary, hugging the ledger tightly.",
+        "rule_points": 9,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Medium close-up of Juliana looking back one last time at the deva...) at 00:38.20, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 20,
+      "note": "Nominated for show slate (11 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 15,
+        "end": 35,
+        "title": "Once my cousin Alexander's death is formally sealed by",
+        "hook": "Once my cousin Alexander's death is formally sealed by the Crown...",
+        "question": "[Visual Cliffhanger] Medium close-up tilting down on JULIANA kneeling in the straw beside a rustic wooden crate, sorting sprigs of dried lavender and sage into a woven basket. Her hands are bound in linen bandages from the recent fire.",
+        "rule_points": 11,
+        "why": "Delivers an immediate hook through RUPERT inside 3 seconds. Ends on a visual cliffhanger beat (Medium close-up tilting down on JULIANA kneeling in the straw bes...) at 01:00.30, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 21,
+      "note": "Nominated for show slate (13 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 3,
+        "end": 29,
+        "title": "A loud wooden slam as the heavy double barn",
+        "hook": "A loud wooden slam as the heavy double barn doors violently fly open.",
+        "question": "[Visual Cliffhanger] Heavy, raspy chest coughs echoing in the small room, accompanied by crackling hearth fire.",
+        "rule_points": 13,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Heavy, raspy chest coughs echoing in the small room, accompanied ...) at 00:45.50, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 22,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 56,
+        "end": 80,
+        "title": "Lady Juliana stops in her tracks and gazes upward",
+        "hook": "Lady Juliana stops in her tracks and gazes upward in awe at the soaring gilded ceilings and aristocratic crest.",
+        "question": "Who has been treating you?",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY JULIANA's spoken question (02:08.80) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 23,
+      "note": "Nominated for show slate (15 signal points; Spoken Question).",
+      "pick": {
+        "start": 31,
+        "end": 50,
+        "title": "Two-shot of Juliana holding the open journal, reciting the",
+        "hook": "Two-shot of Juliana holding the open journal, reciting the matching symptoms to Prudence while the Duchess lies motionless in the background.",
+        "question": "Can you save her?",
+        "rule_points": 15,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on PRUDENCE's spoken question (01:37.00) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 24,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 24,
+        "end": 54,
+        "title": "The noblewoman suddenly rears back her riding crop and",
+        "hook": "The noblewoman suddenly rears back her riding crop and strikes Juliana violently across the torso.",
+        "question": "Do you want the same punishment?",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on NOBLEWOMAN's spoken question (01:10.50) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 25,
+      "note": "Nominated for show slate (15 signal points; Spoken Question).",
+      "pick": {
+        "start": 41,
+        "end": 60,
+        "title": "Prudence told me she was dying",
+        "hook": "Prudence told me she was dying.",
+        "question": "You treated her?",
+        "rule_points": 15,
+        "why": "Starts immediately with JULIANA's conflict hook in the first 3 seconds. The cut terminates on ALEXANDER's spoken question (01:47.00) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 26,
+      "note": "Nominated for show slate (18 signal points; Spoken Question).",
+      "pick": {
+        "start": 25,
+        "end": 42,
+        "title": "Medium close-up of the Duchess looking upward toward Juliana",
+        "hook": "Medium close-up of the Duchess looking upward toward Juliana, her voice trembling with tragic certainty.",
+        "question": "Your Grace? What is wrong? You look as though you've seen a ghost.",
+        "rule_points": 18,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (01:45.00) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 27,
+      "note": "Nominated for show slate (15 signal points; Spoken Question).",
+      "pick": {
+        "start": 53,
+        "end": 79,
+        "title": "Close-up of Juliana, her voice rising passionately",
+        "hook": "Close-up of Juliana, her voice rising passionately.",
+        "question": "You hear that?!",
+        "rule_points": 15,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on LADY CATHERINE's spoken question (02:04.50) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 28,
+      "note": "Nominated for show slate (18 signal points; Spoken Question).",
+      "pick": {
+        "start": 12,
+        "end": 41,
+        "title": "Tight close-up of Catherine's smiling face, her eyes gleaming",
+        "hook": "Tight close-up of Catherine's smiling face, her eyes gleaming with vindictive pleasure.",
+        "question": "You see?",
+        "rule_points": 18,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on BLOND NOBLEMAN's spoken question (00:53.60) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 29,
+      "note": "Nominated for show slate (13 signal points; Spoken Question).",
+      "pick": {
+        "start": 23,
+        "end": 46,
+        "title": "Close-up of Juliana lunging against the guard's grip, her",
+        "hook": "Close-up of Juliana lunging against the guard's grip, her teeth bared in indignation.",
+        "question": "Your scarred soldier?",
+        "rule_points": 13,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (01:14.30) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 30,
+      "note": "Nominated for show slate (13 signal points; Spoken Question).",
+      "pick": {
+        "start": 37,
+        "end": 59,
+        "title": "Medium close-up of Catherine fluttering her fan beneath her",
+        "hook": "Medium close-up of Catherine fluttering her fan beneath her chin, smirking approvingly.",
+        "question": "And Juliana?",
+        "rule_points": 13,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on RUPERT's spoken question (02:01.50) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 31,
+      "note": "Nominated for show slate (9 signal points; Spoken Question).",
+      "pick": {
+        "start": 10,
+        "end": 27,
+        "title": "Over-the-shoulder wide shot past Catherine looking down at Juliana",
+        "hook": "Over-the-shoulder wide shot past Catherine looking down at Juliana shackled helplessly on the wet stone floor.",
+        "question": "Do you remember?",
+        "rule_points": 9,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (00:50.80) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 32,
+      "note": "Nominated for show slate (16 signal points; Spoken Question).",
+      "pick": {
+        "start": 17,
+        "end": 60,
+        "title": "Burn it",
+        "hook": "Burn it.",
+        "question": "Your soldier?",
+        "rule_points": 16,
+        "why": "Starts immediately with JULIANA's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (01:19.40) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 33,
+      "note": "Nominated for show slate (6 signal points; Spoken Question).",
+      "pick": {
+        "start": 63,
+        "end": 81,
+        "title": "Close-up of the maid gasping out in desperate agony",
+        "hook": "Close-up of the maid gasping out in desperate agony.",
+        "question": "My testimony?!",
+        "rule_points": 6,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on MAID's spoken question (02:17.00) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 34,
+      "note": "Nominated for show slate (13 signal points; Spoken Question).",
+      "pick": {
+        "start": 67,
+        "end": 100,
+        "title": "The Lord turns dramatically to face the entire assembly",
+        "hook": "The Lord turns dramatically to face the entire assembly, gesturing toward the spectators.",
+        "question": "You understand that refusal may be treated as proof that you knowingly practiced witchcraft?",
+        "rule_points": 13,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JUDGE's spoken question (02:41.80) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 35,
+      "note": "Nominated for show slate (13 signal points; Spoken Question).",
+      "pick": {
+        "start": 40,
+        "end": 68,
+        "title": "Close-up on his mother, gasping with wide, horrified eyes",
+        "hook": "Close-up on his mother, gasping with wide, horrified eyes.",
+        "question": "Who?",
+        "rule_points": 13,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on ALEXANDER'S MOTHER's spoken question (02:25.00) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 36,
+      "note": "Nominated for show slate (20 signal points; Spoken Question).",
+      "pick": {
+        "start": 63,
+        "end": 87,
+        "title": "Close-up on Alexander, his expression freezing in complete shock",
+        "hook": "Close-up on Alexander, his expression freezing in complete shock.",
+        "question": "When?",
+        "rule_points": 20,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on ALEXANDER's spoken question (02:21.50) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 37,
+      "note": "Nominated for show slate (18 signal points; Spoken Question).",
+      "pick": {
+        "start": 40,
+        "end": 65,
+        "title": "A public execution after a wedding",
+        "hook": "A public execution after a wedding.",
+        "question": "Do you think she'll actually be executed?",
+        "rule_points": 18,
+        "why": "Starts immediately with NOBLEMAN's conflict hook in the first 3 seconds. The cut terminates on NOBLEMAN's spoken question (01:59.80) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 38,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 1,
+        "end": 25,
+        "title": "Medium profile shot of Juliana slumped on the damp",
+        "hook": "Medium profile shot of Juliana slumped on the damp stone floor of her dark dungeon cell, her wrists bound in heavy iron shackles and chains draped over her lap.",
+        "question": "...are you safe?",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:39.00) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 39,
+      "note": "Nominated for show slate (11 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 27,
+        "end": 59,
+        "title": "Wide high-angle shot overlooking the stone cathedral steps where",
+        "hook": "Wide high-angle shot overlooking the stone cathedral steps where both royal guards lie unconscious on the fallen autumn leaves while more men slip inside the opened doors.",
+        "question": "[Visual Cliffhanger] Alexander's eyes burn with furious determination as the screen cuts sharply to black.",
+        "rule_points": 11,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Alexander's eyes burn with furious determination as the screen cu...) at 01:38.41, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 40,
+      "note": "Nominated for show slate (9 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 23,
+        "end": 39,
+        "title": "Of the wedding?",
+        "hook": "Of the wedding?",
+        "question": "[Visual Cliffhanger] The heavy creak of massive wooden cathedral doors swinging open, accompanied by swelling bridal organ music.",
+        "rule_points": 9,
+        "why": "Delivers an immediate hook through LORD HARRINGTON inside 3 seconds. Ends on a visual cliffhanger beat (The heavy creak of massive wooden cathedral doors swinging open, ...) at 01:21.00, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 41,
+      "note": "Nominated for show slate (14 signal points; Spoken Question).",
+      "pick": {
+        "start": 14,
+        "end": 34,
+        "title": "Extreme close-up of Juliana's scarred, dirtied wrists bound tight",
+        "hook": "Extreme close-up of Juliana's scarred, dirtied wrists bound tight in heavy iron shackles.",
+        "question": "You needed an entire chapel to feel powerful over one chained woman?",
+        "rule_points": 14,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (01:00.50) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 42,
+      "note": "Nominated for show slate (13 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 12,
+        "end": 36,
+        "title": "We will not",
+        "hook": "We will not.",
+        "question": "[Visual Cliffhanger] Tight close-up on Alexander, his hand resting on the hilt of his sabre as his eyes burn with fierce, cold retribution.",
+        "rule_points": 13,
+        "why": "Delivers an immediate hook through ROYAL GUARD inside 3 seconds. Ends on a visual cliffhanger beat (Tight close-up on Alexander, his hand resting on the hilt of his ...) at 01:17.80, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 43,
+      "note": "Nominated for show slate (15 signal points; Spoken Question).",
+      "pick": {
+        "start": 59,
+        "end": 82,
+        "title": "I didn't!",
+        "hook": "I didn't!",
+        "question": "My Lord?",
+        "rule_points": 15,
+        "why": "Starts immediately with BLOND NOBLEMAN's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (01:46.20) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 44,
+      "note": "Nominated for show slate (9 signal points; Spoken Question).",
+      "pick": {
+        "start": 3,
+        "end": 20,
+        "title": "Medium two-shot of the Police Constable towering over Lord",
+        "hook": "Medium two-shot of the Police Constable towering over Lord Sterling.",
+        "question": "Do you know what this did to me?",
+        "rule_points": 9,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (00:31.00) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 45,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 1,
+        "end": 23,
+        "title": "Full tracking shot following behind Alexander as he walks",
+        "hook": "Full tracking shot following behind Alexander as he walks down the rubble-covered stone aisle toward Juliana.",
+        "question": "All this time?",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:29.60) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 46,
+      "note": "Nominated for show slate (9 signal points; Visual Cliffhanger).",
+      "pick": {
+        "start": 15,
+        "end": 33,
+        "title": "Medium close-up of the High Priest holding the decree",
+        "hook": "Medium close-up of the High Priest holding the decree, his gaze burning with disdain.",
+        "question": "[Visual Cliffhanger] Close-up of Juliana lifting her chin, tearful yet burning with righteous fury.",
+        "rule_points": 9,
+        "why": "Delivers an immediate hook through Opening visual inside 3 seconds. Ends on a visual cliffhanger beat (Close-up of Juliana lifting her chin, tearful yet burning with ri...) at 01:02.80, cutting away before the physical consequence or identity is revealed."
+      }
+    },
+    {
+      "episode": 47,
+      "note": "Nominated for show slate (11 signal points; Spoken Question).",
+      "pick": {
+        "start": 1,
+        "end": 14,
+        "title": "Low-angle focus on a dripping candle burning on a",
+        "hook": "Low-angle focus on a dripping candle burning on a wooden table beside a dark window looking out into the misty night.",
+        "question": "What if they strip your title? Because of me?",
+        "rule_points": 11,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on JULIANA's spoken question (00:30.30) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 48,
+      "note": "Nominated for show slate (4 signal points; Spoken Question).",
+      "pick": {
+        "start": 3,
+        "end": 17,
+        "title": "Two words, and that healer's crown rolls right back",
+        "hook": "Two words, and that healer's crown rolls right back into the gutter where it belongs.",
+        "question": "You sent for me, my lady?",
+        "rule_points": 4,
+        "why": "Starts immediately with CATHERINE's conflict hook in the first 3 seconds. The cut terminates on AGNES's spoken question (00:30.80) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 49,
+      "note": "Nominated for show slate (9 signal points; Spoken Question).",
+      "pick": {
+        "start": 36,
+        "end": 46,
+        "title": "Frontal close-up of Catherine raising two fingers in the",
+        "hook": "Frontal close-up of Catherine raising two fingers in the candlelight, her eyes burning with ruthless intent.",
+        "question": "If I keep the hearing open, if I feed you every word spoken behind those doors, what happens to me when the Duke finds out a crowned priest conspired against him?",
+        "rule_points": 9,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on FATHER THOMAS's spoken question (01:52.80) to force a new viewer to seek the answer in the next episode."
+      }
+    },
+    {
+      "episode": 50,
+      "note": "Nominated for show slate (9 signal points; Spoken Question).",
+      "pick": {
+        "start": 1,
+        "end": 27,
+        "title": "High overhead birds-eye shot looking straight down at the",
+        "hook": "High overhead birds-eye shot looking straight down at the unkempt bed, where Catherine lies curled in a silk chemise against Father Thomas's bare chest.",
+        "question": "In another room no one uses?",
+        "rule_points": 9,
+        "why": "Starts immediately with Opening visual's conflict hook in the first 3 seconds. The cut terminates on CATHERINE's spoken question (00:56.50) to force a new viewer to seek the answer in the next episode."
+      }
+    }
+  ],
+  "ranking": {
+    "order": [
+      "E36",
+      "E3",
+      "E10",
+      "E13",
+      "E26",
+      "E28",
+      "E37",
+      "E14",
+      "E32",
+      "E16",
+      "E18",
+      "E23",
+      "E25",
+      "E27",
+      "E43",
+      "E6",
+      "E41",
+      "E1",
+      "E11",
+      "E12",
+      "E21",
+      "E29",
+      "E30",
+      "E34",
+      "E35",
+      "E42",
+      "E2",
+      "E4",
+      "E5",
+      "E9",
+      "E15",
+      "E20",
+      "E22",
+      "E24",
+      "E38",
+      "E39",
+      "E45",
+      "E47",
+      "E8",
+      "E19",
+      "E31",
+      "E40",
+      "E44",
+      "E46",
+      "E49",
+      "E50",
+      "E17",
+      "E33",
+      "E7",
+      "E48"
+    ],
+    "montage": null
+  }
+}

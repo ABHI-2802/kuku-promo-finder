@@ -596,6 +596,11 @@ with tab_demo:
                 st.session_state.origin = origin
                 st.toast("✅ Sample analyzed successfully!", icon="🎬")
         except Exception as exc:
+            st.session_state.pack = None
+            st.session_state.reviews = None
+            st.session_state.ranking = None
+            st.session_state.results = None
+            st.session_state.origin = ""
             st.error(f"Execution Error: {exc}")
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -662,6 +667,11 @@ with tab_upload:
                 st.session_state.origin = origin
                 st.toast("✅ Analysis complete!", icon="🎯")
         except Exception as exc:
+            st.session_state.pack = None
+            st.session_state.reviews = None
+            st.session_state.ranking = None
+            st.session_state.results = None
+            st.session_state.origin = ""
             st.error(f"Ingestion & Validation Error: {exc}")
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -851,27 +861,33 @@ if st.session_state.results is not None:
                             f'<div style="background:rgba(0,229,255,0.03); border:1px solid rgba(0,229,255,0.25); border-top:3px solid #00E5FF; border-radius:8px; padding:1rem; height:100%;">'
                             f'<span style="background:rgba(0,229,255,0.15); color:#00E5FF; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.55rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem;">✓ CHOSEN OUT-POINT (CUE #{final_c["id"]} · {final_c["label"]})</span>'
                             f'<div style="font-size:1.05rem; font-weight:600; color:#FFF; margin-bottom:0.5rem;">"{final_c["text"]}"</div>'
-                            f'<div style="font-size:0.78rem; color:#00E5FF;">Ends at {timecode(final_c["b"])} • Leaves audience hanging on the cliffhanger.</div>'
+                            f'<div style="font-size:0.78rem; color:#00E5FF;">Ends at {timecode(final_c["b"])} • Audience cut-off point.</div>'
                             f'</div>',
                             unsafe_allow_html=True,
                         )
                     with c_right:
-                        border_color = "#FF2E63" if has_spoiler else "rgba(255,255,255,0.15)"
-                        badge_bg = "rgba(255,46,99,0.15)" if has_spoiler else "rgba(255,255,255,0.08)"
-                        badge_color = "#FF2E63" if has_spoiler else "#94A3B8"
-                        status_text = "⚠️ SPOILER RISK" if has_spoiler else "⚡ NEXT SPOKEN LINE"
-                        caption_text = "🚨 Warning: Cutting here reveals the answer and kills mystery!" if has_spoiler else "Safe boundary: Extends tension without premature reveal."
-                        next_text = next_c["text"] if next_c else "No further spoken dialogue in this episode."
-                        next_label = f"CUE #{next_c['id']} · {next_c['label']}" if next_c else "N/A"
-
-                        st.markdown(
-                            f'<div style="background:rgba(255,46,99,0.03); border:1px solid {border_color}; border-top:3px solid {border_color}; border-radius:8px; padding:1rem; height:100%;">'
-                            f'<span style="background:{badge_bg}; color:{badge_color}; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.55rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem;">{status_text} ({next_label})</span>'
-                            f'<div style="font-size:1.05rem; font-weight:600; color:{"#FF6B8B" if has_spoiler else "#CBD5E1"}; margin-bottom:0.5rem;">"{next_text}"</div>'
-                            f'<div style="font-size:0.78rem; color:{"#FF2E63" if has_spoiler else "#64748B"};">{caption_text}</div>'
-                            f'</div>',
-                            unsafe_allow_html=True,
-                        )
+                        if next_c:
+                            delta_cs = max(0, next_c["a"] - final_c["b"])
+                            delta_str = f"+{delta_cs / 100:.2f}s after cut"
+                            next_text = next_c["text"]
+                            next_label = f"CUE #{next_c['id']} · {next_c['label']}"
+                            st.markdown(
+                                f'<div style="background:rgba(255,184,0,0.03); border:1px solid rgba(255,184,0,0.25); border-top:3px solid #FFB800; border-radius:8px; padding:1rem; height:100%;">'
+                                f'<span style="background:rgba(255,184,0,0.15); color:#FFB800; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.55rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem;">⚡ EARLIEST SPOKEN LINE AFTER CUT ({next_label})</span>'
+                                f'<div style="font-size:1.05rem; font-weight:600; color:#CBD5E1; margin-bottom:0.5rem;">"{next_text}"</div>'
+                                f'<div style="font-size:0.78rem; color:#94A3B8;">Starts at {timecode(next_c["a"])} ({delta_str}) • Inspect to judge if extending reveals answers.</div>'
+                                f'</div>',
+                                unsafe_allow_html=True,
+                            )
+                        else:
+                            st.markdown(
+                                f'<div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.1); border-top:3px solid #64748B; border-radius:8px; padding:1rem; height:100%;">'
+                                f'<span style="background:rgba(255,255,255,0.08); color:#94A3B8; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.55rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem;">END OF EPISODE DIALOGUE</span>'
+                                f'<div style="font-size:1.05rem; font-weight:600; color:#94A3B8; margin-bottom:0.5rem;">No further spoken dialogue in this episode.</div>'
+                                f'<div style="font-size:0.78rem; color:#64748B;">Cut remains open through episode end.</div>'
+                                f'</div>',
+                                unsafe_allow_html=True,
+                            )
 
             with tab_inspect_sim:
                 st.markdown(

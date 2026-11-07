@@ -18,7 +18,14 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional
 
-from .parser import centiseconds, timecode, spoken, safe_boundary, next_spoken_cue
+from .parser import (
+    centiseconds,
+    timecode,
+    spoken,
+    safe_boundary,
+    earliest_spoken_after,
+    next_spoken_cue,
+)
 
 FIELDS = ("title", "hook", "question", "why")
 MIN_CS, MAX_CS = 2000, 6000   # 20 s and 60 s in centiseconds
@@ -207,7 +214,8 @@ def compare_endings(
 ) -> List[dict]:
     """
     For each segment in *resolved_promo* return a dict with the final cue and
-    the next spoken cue in the same episode, so editors can judge spoiler risk.
+    the earliest spoken line starting at or after the cut time, so editors
+    can judge what a later cut reveals.
     """
     out = []
     for seg in resolved_promo["segments"]:
@@ -215,7 +223,8 @@ def compare_endings(
         end_id = seg["end_id"]
         cues   = pack[ep]
         final  = cues[end_id - 1]
-        nxt    = next_spoken_cue(cues, end_id)
+        cut_end_cs = centiseconds(seg["end"]) if isinstance(seg["end"], str) else final["b"]
+        nxt    = earliest_spoken_after(cues, cut_end_cs)
         out.append(
             {
                 "episode":     ep,
