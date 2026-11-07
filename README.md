@@ -1,87 +1,164 @@
-# 🎬 Kuku Promo Finder
+# 🎬 Kuku Promo Finder · Microdrama Studio Suite
 
-A Streamlit tool for microdrama editors to automatically find, validate, and rank the best **20–60 second promos** across an entire short-drama series from timestamped screenplay files.
+> **AI-powered promotional cut extraction, retention scoring, and spoiler verification for short-drama series (Kuku FM, ReelShort, DramaBox).**
 
----
-
-## ✨ Features
-
-- **One-click demo**: "Try a sample" runs instantly on three original scenes — no account, no API key required.
-- **Upload scripts**: Drop one or more `.txt` screenplay files or a single `.zip` archive.
-- **Duration & cut validation**: Python enforces 20–60 s total length and rejects any cut that splits a spoken line.
-- **Compare endings**: Inspect the chosen cut point side-by-side with the very next spoken line in the script to verify spoiler safety.
-- **Offline & AI modes**:
-  - **Offline (default)**: Deterministic keyword-and-question rules baseline, runs locally with zero network calls.
-  - **AI model**: Connects to any OpenAI-compatible chat-completions endpoint (OpenAI, Gemini, Groq, Ollama, etc.).
-- **Downloads**: One-click download of `ranked_promos.csv`, `episode_coverage.csv`, and `promo_run.json`.
-- **Privacy-first**: No screenplays, transcripts, or API keys are ever stored or logged.
+[![Live Demo](https://img.shields.io/badge/Live_Prototype-trycloudflare.com-FF6B00?style=for-the-badge&logo=cloudflare&logoColor=white)](https://comp-accessories-enrollment-enquiries.trycloudflare.com)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-00F59B?style=for-the-badge)](LICENSE)
 
 ---
 
-## 🚀 Quick start (local)
+## 🌐 Try the Live Prototype
+
+Test the live interactive prototype right in your browser (desktop & mobile):
+
+👉 **[https://comp-accessories-enrollment-enquiries.trycloudflare.com](https://comp-accessories-enrollment-enquiries.trycloudflare.com)**
+
+*(No login or API key required. Click **"Run Sample Now"** on the first tab to analyze 3 demo microdrama episodes instantly.)*
+
+---
+
+## 💡 What is Kuku Promo Finder?
+
+In high-growth microdramas, audience acquisition lives and dies by **20–60 second vertical promos** on TikTok, Instagram Reels, and YouTube Shorts. 
+
+Human editors typically spend hours scanning 50+ script episodes to find clips that:
+1. **Hook the viewer in the first 3 seconds** (immediate action, conflict, or high-stakes dialogue).
+2. **Build tension within 20–60 seconds** without resolving it.
+3. **End on an unanswered question** that compels a first-time viewer to swipe up and install the app.
+4. **Never cut mid-sentence** or leak the answer right after the cut.
+
+**Kuku Promo Finder solves this entirely:** It ingests timestamped screenplay files, indexes dialogue and camera cues, extracts candidate windows, validates speech boundaries with mathematical precision, and ranks the highest-converting launch slate across the entire show.
+
+---
+
+## ⚡ Core Highlights
+
+| Feature | What it does | Why it matters |
+|---|---|---|
+| **⚡ 3-Second Retention Hook** | Scans the opening 3 seconds of every candidate for conflict signals or sharp dialogue. | Prevents viewers from swiping away in their social media feeds. |
+| **⏱ 20–60s Strict Duration** | Calculates exact elapsed play duration at segment boundaries. | Enforces optimal ad and organic reel length without manual calculations. |
+| **🛡️ 100% Speech Boundary Safety** | Rejects any edit point that falls mid-speech (`cue.start < point < cue.end`). | Ensures broadcast-ready cuts with zero chopped words. |
+| **🔬 Compare Endings (Spoiler Autopsy)** | Displays the chosen cliffhanger out-point side-by-side with the very next line in the script. | Automatically alerts editors if extending the cut by 2 seconds would spoil the mystery. |
+| **📱 9:16 Mobile Feed Simulator** | Previews how the cut will appear in a vertical video player with hook overlays and subtitles. | Gives creative directors an instant visual sanity check. |
+| **⬇ Production Exports** | Generates `ranked_promos.csv`, `episode_coverage.csv`, and `promo_run.json`. | Direct copy-paste into editing suites (Premiere Pro, DaVinci Resolve, Final Cut). |
+
+---
+
+## 🔬 How the Editorial Engine Works
+
+```mermaid
+flowchart LR
+    A[📄 Screenplays .txt / .zip] --> B[1. Parser & Boundary Indexer]
+    B --> C[2. 20–60s Window Scanner]
+    C --> D{Speech Split Check}
+    D -- Fails --> C
+    D -- Passes --> E[3. Hook & Cliffhanger Scorer]
+    E --> F[4. Ranked Slate & Compare Endings Lab]
+    F --> G[📥 CSV / JSON Export]
+```
+
+1. **Parser & Cue Indexer:** Assigns each screenplay cue a sequential ID and centisecond-accurate timestamps (`MM:SS.cc`). Dialogue and non-speech (`CAMERA`, `ACTION`, `SFX`) are differentiated.
+2. **Editorial Rules Engine (Offline):** Identifies conflict cues paired with spoken question endings. Calculates elapsed time, score weights, and rejects split speech boundaries.
+3. **AI Two-Pass Analysis (Optional):** Can also connect to any OpenAI-compatible LLM to perform deep contextual reasoning on character motives and visual suspense.
+4. **Compare Endings Verification:** Inspects the cue immediately following the cut point to confirm that the cliffhanger question is genuinely left open.
+
+---
+
+## 🚀 Quick Start (Local Run)
+
+Run the application locally on your machine in 3 steps:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/kuku-promo-finder.git
+git clone https://github.com/ABHI-2802/kuku-promo-finder.git
 cd kuku-promo-finder
 
-# 2. Create and activate a virtual environment
-python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# 3. Install dependencies
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 4. Run the app
+# 3. Launch the Streamlit app
 streamlit run app.py
 ```
 
-The app opens automatically at `http://localhost:8501`.
+The app will open automatically at **`http://localhost:8501`**.
 
 ---
 
-## ☁️ Deploy to Streamlit Community Cloud
+## ☁️ Deploy to Streamlit Community Cloud (Free 24/7 Hosting)
 
-1. Push this folder to a GitHub repository.
-2. Sign in to [share.streamlit.io](https://share.streamlit.io/).
-3. Click **New app**, select your repo, branch `main`, and main file `app.py`.
-4. *(Optional — to enable server-side AI)* In **App settings → Secrets**, paste:
+1. Fork or push this repository to your GitHub account.
+2. Go to **[share.streamlit.io](https://share.streamlit.io/)** and sign in.
+3. Click **New app**, select `ABHI-2802/kuku-promo-finder`, branch `main`, and main file `app.py`.
+4. Click **Deploy!**
+5. *(Optional for AI mode)* In the app settings under **Secrets**, add:
+   ```toml
+   PROMO_API_URL = "https://api.openai.com/v1/chat/completions"
+   PROMO_MODEL   = "gpt-4o-mini"
+   PROMO_API_KEY = "sk-..."
+   ```
 
-```toml
-PROMO_API_URL = "https://api.openai.com/v1/chat/completions"
-PROMO_MODEL   = "gpt-4o-mini"
-PROMO_API_KEY = "sk-..."
-```
-
-If secrets are not provided, the app runs happily in **offline mode** with zero configuration.
+*(If no API keys are added, the app operates automatically in high-speed **Offline Mode** with zero external dependencies.)*
 
 ---
 
-## 📄 Screenplay format
+## 📄 Screenplay File Format
 
-Each `.txt` file must include an episode header and cue blocks:
+Each `.txt` file must include an episode header and formatted cue blocks:
 
-```
+```text
 EPISODE NUMBER: Episode 1
 
-**SPEAKER:**
-Start: (00:00.00) | End: (00:05.50)
-Spoken dialogue or voiceover text here.
-
 **CAMERA:**
-Start: (00:05.50) | End: (00:10.00)
-Action description. Non-speech cues are allowed and given IDs.
+Start: (00:00.00) | End: (00:05.50)
+Candlelight fills a crowded hall. The groom stands at the altar.
+
+**VERA:**
+Start: (00:05.50) | End: (00:13.00)
+"Stop this wedding! That man already has a wife."
+
+**GROOM:**
+Start: (00:13.00) | End: (00:22.00)
+"She lies! Those documents were destroyed in the fire."
+
+**VERA:**
+Start: (00:22.00) | End: (00:31.50)
+"Then who delivered a copy to the magistrate's office this morning?"
 ```
 
-Non-speech cue labels (`CAMERA`, `ACTION`, `SOUND FX`, `SFX`, `MUSIC`, `TRANSITION`, `VFX`) are recognized so cuts won't accidentally split mid-sentence speech.
+- Spoken cues use character names (e.g., `VERA:`, `GROOM:`).
+- Non-speech cues (`CAMERA:`, `ACTION:`, `SOUND FX:`, `MUSIC:`) are parsed and indexed without being treated as dialogue boundaries.
 
 ---
 
-## 🧪 Testing locally
+## 🧪 Automated Test Suite
 
-A built-in test suite verifies the parser, rules engine, and CSV/JSON export:
+A built-in test suite validates the parser, duration math, boundary checking, and export generation:
 
 ```bash
 python3 test_app.py
 ```
 
+**Test Coverage:**
+- ✅ Screenplay parsing & sequential cue ID assignment
+- ✅ centisecond timecode conversion & boundary safety
+- ✅ Strict 20–60s duration window enforcement
+- ✅ Next-spoken-line spoiler detection logic
+- ✅ Validated CSV & JSON serialization
+- ✅ In-memory `.zip` upload integrity
+
+---
+
+## 🔒 Privacy & Security
+
+- **Zero Data Leakage:** Screenplay text and generated edit lists are processed in-memory or in local session cache.
+- **No Hardcoded Secrets:** Private scripts, `.env` files, and credentials are included in `.gitignore` to prevent repository leaks.
+
+---
+
+## 👤 Author & Credits
+
+Built for microdrama editorial workflows by **Abhishek Biradar**.
+- GitHub: [@ABHI-2802](https://github.com/ABHI-2802)
+- Repository: [kuku-promo-finder](https://github.com/ABHI-2802/kuku-promo-finder)
