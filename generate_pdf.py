@@ -351,3 +351,4 @@ def build_pdf(filename="Kuku_PS1_Solution_Doc.pdf"):
 if __name__ == "__main__":
     build_pdf("kuku_promo_finder/Kuku_PS1_Solution_Doc.pdf")
     build_pdf("kuku_promo_finder/submission_outputs/Kuku_PS1_Solution_Doc.pdf")
+
