@@ -1,0 +1,54 @@
+EPISODE NUMBER: Episode 1
+
+--- SCRIPT BEGIN ---
+
+SCENE 1 — The Wedding Hall
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:05.50)
+Candlelight fills a crowded hall. The groom stands at the altar, hands clasped.
+
+**PRIEST:**
+Start: (00:05.50) | End: (00:13.00)
+"If any person here knows a reason this marriage should not take place, speak now or forever hold your peace."
+
+**ACTION:**
+Start: (00:13.00) | End: (00:17.50)
+A woman in black stands at the back of the hall. Every head turns.
+
+**VERA:**
+Start: (00:17.50) | End: (00:26.00)
+"Stop this wedding! That man already has a wife and nothing but lies have passed his lips since the day they met."
+
+**CAMERA:**
+Start: (00:26.00) | End: (00:30.00)
+The groom's face drains of colour. He grips the altar rail.
+
+**GROOM:**
+Start: (00:30.00) | End: (00:38.00)
+"She lies. Those documents were destroyed in the fire. There is nothing left to find."
+
+**SOUND FX:**
+Start: (00:38.00) | End: (00:41.50)
+A wave of murmurs ripples through the hall.
+
+**VERA:**
+Start: (00:41.50) | End: (00:49.50)
+"Then who delivered a copy to the magistrate's office this very morning?"
+
+**ACTION:**
+Start: (00:49.50) | End: (00:54.00)
+The bride slowly removes her veil and stares at the groom.
+
+**BRIDE:**
+Start: (00:54.00) | End: (01:01.00)
+"Tell me the papers are forged. Look me in the eye and tell me."
+
+**GROOM:**
+Start: (01:01.00) | End: (01:08.00)
+"I can explain everything. Please, just give me one moment."
+
+**VERA:**
+Start: (01:08.00) | End: (01:15.50)
+"Can you also explain the death certificate filed under your first wife's name?"
+

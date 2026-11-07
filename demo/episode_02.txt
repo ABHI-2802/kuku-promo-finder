@@ -1,0 +1,54 @@
+EPISODE NUMBER: Episode 2
+
+--- SCRIPT BEGIN ---
+
+SCENE 1 — The Doctor's Study
+
+**CONSTABLE:**
+Start: (00:00.00) | End: (00:08.00)
+"The ledger has vanished. Someone removed it from this room before we arrived."
+
+**DOCTOR:**
+Start: (00:08.00) | End: (00:15.50)
+"My assistant was present the entire evening. No one could have entered without being seen."
+
+**SOUND FX:**
+Start: (00:15.50) | End: (00:19.00)
+A dull thud echoes from the floor above.
+
+**CONSTABLE:**
+Start: (00:19.00) | End: (00:27.50)
+"Then explain the blood we found on the staircase, Doctor."
+
+**ACTION:**
+Start: (00:27.50) | End: (00:32.00)
+The doctor presses himself against the bookcase, jaw tight.
+
+**DOCTOR:**
+Start: (00:32.00) | End: (00:39.50)
+"I need to attend to my patient upstairs at once."
+
+**CONSTABLE:**
+Start: (00:39.50) | End: (00:47.00)
+"You will not leave this room until every question I have is answered."
+
+**SOUND FX:**
+Start: (00:47.00) | End: (00:50.50)
+Three slow knocks come from behind a locked door at the far end of the hall.
+
+**CONSTABLE:**
+Start: (00:50.50) | End: (00:58.00)
+"Who is locked inside that room?"
+
+**DOCTOR:**
+Start: (00:58.00) | End: (01:05.50)
+"I do not know. I swear to you I do not know."
+
+**ACTION:**
+Start: (01:05.50) | End: (01:09.00)
+The door handle turns slowly from the inside.
+
+**CONSTABLE:**
+Start: (01:09.00) | End: (01:14.50)
+"Stand back."
+

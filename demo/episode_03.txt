@@ -1,0 +1,54 @@
+EPISODE NUMBER: Episode 3
+
+--- SCRIPT BEGIN ---
+
+SCENE 1 — The Courtroom
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:06.50)
+A single candle burns on the judge's bench. The accused stands alone in the centre of the room.
+
+**LORD RESTON:**
+Start: (00:06.50) | End: (00:15.00)
+"I have three witnesses prepared to swear under oath that they saw you poison the village well."
+
+**ANNA:**
+Start: (00:15.00) | End: (00:22.00)
+"Your witnesses tell nothing but lies. Every one of them is in your pay."
+
+**LORD RESTON:**
+Start: (00:22.00) | End: (00:30.50)
+"Perhaps. But a hanging requires only twelve of them, and I have more than enough."
+
+**SOUND FX:**
+Start: (00:30.50) | End: (00:34.00)
+The heavy door at the rear swings open.
+
+**GUARD:**
+Start: (00:34.00) | End: (00:40.00)
+"A girl from the lower village is outside. She says she saw something the night of the poisoning."
+
+**LORD RESTON:**
+Start: (00:40.00) | End: (00:46.50)
+"Bring her in. Let us hear what she has to say."
+
+**ANNA:**
+Start: (00:46.50) | End: (00:54.00)
+"Who brought this girl here? I saved her life last winter. She owes me everything."
+
+**ACTION:**
+Start: (00:54.00) | End: (00:58.50)
+A young girl enters and keeps her eyes fixed on the floor.
+
+**GIRL:**
+Start: (00:58.50) | End: (01:06.50)
+"I saw her take the poison from the healer's bag and carry it to the well before sunrise."
+
+**ANNA:**
+Start: (01:06.50) | End: (01:14.00)
+"That is a lie. Who told you to say that? Who promised you something in return?"
+
+**ACTION:**
+Start: (01:14.00) | End: (01:18.00)
+The girl raises one hand and points directly at Lord Reston.
+
