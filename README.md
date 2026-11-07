@@ -2,7 +2,7 @@
 
 > **AI-powered promotional cut extraction, retention scoring, and spoiler verification for short-drama series (Kuku FM, ReelShort, DramaBox).**
 
-[![Live Demo](https://img.shields.io/badge/Live_Prototype-trycloudflare.com-FF6B00?style=for-the-badge&logo=cloudflare&logoColor=white)](https://comp-accessories-enrollment-enquiries.trycloudflare.com)
+[![Live Demo](https://img.shields.io/badge/Live_Prototype-trycloudflare.com-FF6B00?style=for-the-badge&logo=cloudflare&logoColor=white)](https://heaven-specify-integrated-modify.trycloudflare.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-00F59B?style=for-the-badge)](LICENSE)
@@ -13,7 +13,7 @@
 
 Test the live interactive prototype right in your browser (desktop & mobile):
 
-👉 **[https://comp-accessories-enrollment-enquiries.trycloudflare.com](https://comp-accessories-enrollment-enquiries.trycloudflare.com)**
+👉 **[https://heaven-specify-integrated-modify.trycloudflare.com](https://heaven-specify-integrated-modify.trycloudflare.com)**
 
 *(No login or API key required. Click **"Run Sample Now"** on the first tab to analyze 3 demo microdrama episodes instantly.)*
 
