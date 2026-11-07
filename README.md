@@ -2,7 +2,7 @@
 
 > **AI-powered promotional cut extraction, retention scoring, and spoiler verification for short-drama series (Kuku FM, ReelShort, DramaBox).**
 
-[![Live Demo](https://img.shields.io/badge/Live_Prototype-trycloudflare.com-FF6B00?style=for-the-badge&logo=cloudflare&logoColor=white)](https://released-polar-mathematics-pennsylvania.trycloudflare.com)
+[![Live Demo](https://img.shields.io/badge/Live_Prototype-streamlit.app-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://kuku-promo-finder-7ciuu7urvol9veyyasppdg.streamlit.app)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-00F59B?style=for-the-badge)](LICENSE)
@@ -11,9 +11,9 @@
 
 ## 🌐 Try the Live Prototype
 
-Test the live interactive prototype right in your browser (desktop & mobile):
+Test the live interactive prototype right in your browser (24/7 Permanent Cloud URL):
 
-👉 **[https://released-polar-mathematics-pennsylvania.trycloudflare.com](https://released-polar-mathematics-pennsylvania.trycloudflare.com)**
+👉 **[https://kuku-promo-finder-7ciuu7urvol9veyyasppdg.streamlit.app](https://kuku-promo-finder-7ciuu7urvol9veyyasppdg.streamlit.app)**
 
 *(No login or API key required. Click **"Run Sample Now"** on the first tab to analyze 3 demo microdrama episodes instantly.)*
 
