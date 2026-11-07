@@ -10,6 +10,7 @@ import os
 import sys
 import json
 import tempfile
+import textwrap
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -767,49 +768,51 @@ if st.session_state.results is not None:
         )
 
         st.markdown(
-            f"""
-            <div class="promo-master-card">
-                <div class="promo-header-flex">
-                    <div>
-                        <span class="rank-badge-pill">RANK #{p['rank']}</span>
-                        <strong style="font-size:1.25rem; font-family:'Space Grotesk'; color:#FFF; margin-left:0.6rem;">{p['id']} · {p['title']}</strong>
+            textwrap.dedent(
+                f"""
+                <div class="promo-master-card">
+                    <div class="promo-header-flex">
+                        <div>
+                            <span class="rank-badge-pill">RANK #{p['rank']}</span>
+                            <strong style="font-size:1.25rem; font-family:'Space Grotesk'; color:#FFF; margin-left:0.6rem;">{p['id']} · {p['title']}</strong>
+                        </div>
+                        <div class="promo-duration-pill">
+                            <span>⏱</span>
+                            <span>{p['duration_s']:.2f}s TOTAL</span>
+                        </div>
                     </div>
-                    <div class="promo-duration-pill">
-                        <span>⏱</span>
-                        <span>{p['duration_s']:.2f}s TOTAL</span>
+                    
+                    <div class="segment-track-bar">
+                        {capsules_html}
                     </div>
-                </div>
-                
-                <div class="segment-track-bar">
-                    {capsules_html}
-                </div>
 
-                <div class="editorial-pillars">
-                    <div class="pillar-box hook-box">
-                        <div class="pillar-tag hook-tag">
-                            <span>⚡</span>
-                            <span>FIRST 3-SECOND RETENTION HOOK</span>
+                    <div class="editorial-pillars">
+                        <div class="pillar-box hook-box">
+                            <div class="pillar-tag hook-tag">
+                                <span>⚡</span>
+                                <span>FIRST 3-SECOND RETENTION HOOK</span>
+                            </div>
+                            <div class="pillar-body">
+                                "{p['hook']}"
+                            </div>
                         </div>
-                        <div class="pillar-body">
-                            "{p['hook']}"
+                        <div class="pillar-box question-box">
+                            <div class="pillar-tag question-tag">
+                                <span>❓</span>
+                                <span>UNANSWERED CLIFFHANGER QUESTION</span>
+                            </div>
+                            <div class="pillar-body">
+                                "{p['question']}"
+                            </div>
                         </div>
                     </div>
-                    <div class="pillar-box question-box">
-                        <div class="pillar-tag question-tag">
-                            <span>❓</span>
-                            <span>UNANSWERED CLIFFHANGER QUESTION</span>
-                        </div>
-                        <div class="pillar-body">
-                            "{p['question']}"
-                        </div>
-                    </div>
-                </div>
 
-                <div class="why-section">
-                    <strong style="color:var(--accent-emerald);">💡 Editorial Rationale:</strong> {p['why']}
+                    <div class="why-section">
+                        <strong style="color:var(--accent-emerald);">💡 Editorial Rationale:</strong> {p['why']}
+                    </div>
                 </div>
-            </div>
-            """,
+                """
+            ),
             unsafe_allow_html=True,
         )
 
@@ -838,62 +841,66 @@ if st.session_state.results is not None:
                     has_spoiler = next_c and any(w in next_c["text"].lower() for w in spoiler_words)
 
                     st.markdown(
-                        f"""
-                        <div style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#94A3B8; margin-bottom:0.4rem;">
-                            SEGMENT: Episode {ep_num} [Cue #{final_c['id']} ➔ Cue #{next_c['id'] if next_c else 'END'}]
-                        </div>
-                        <div class="lab-split-grid">
-                            <div class="lab-card lab-chosen">
-                                <span class="lab-badge badge-chosen">✓ CHOSEN OUT-POINT (CUE #{final_c['id']} · {final_c['label']})</span>
-                                <div style="font-size:1.05rem; font-weight:600; color:#FFF; margin-bottom:0.5rem;">
-                                    "{final_c['text']}"
+                        textwrap.dedent(
+                            f"""
+                            <div style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#94A3B8; margin-bottom:0.4rem;">
+                                SEGMENT: Episode {ep_num} [Cue #{final_c['id']} ➔ Cue #{next_c['id'] if next_c else 'END'}]
+                            </div>
+                            <div class="lab-split-grid">
+                                <div class="lab-card lab-chosen">
+                                    <span class="lab-badge badge-chosen">✓ CHOSEN OUT-POINT (CUE #{final_c['id']} · {final_c['label']})</span>
+                                    <div style="font-size:1.05rem; font-weight:600; color:#FFF; margin-bottom:0.5rem;">
+                                        "{final_c['text']}"
+                                    </div>
+                                    <div style="font-size:0.78rem; color:var(--accent-cyan);">
+                                        Ends at {timecode(final_c['b'])} • Leaves audience hanging on the cliffhanger.
+                                    </div>
                                 </div>
-                                <div style="font-size:0.78rem; color:var(--accent-cyan);">
-                                    Ends at {timecode(final_c['b'])} • Leaves audience hanging on the cliffhanger.
+                                <div class="lab-card lab-next">
+                                    <span class="lab-badge badge-next">{'⚠️ SPOILER RISK' if has_spoiler else '⚡ NEXT SPOKEN LINE'} (CUE #{next_c['id'] if next_c else 'None'} · {next_c['label'] if next_c else 'N/A'})</span>
+                                    <div style="font-size:1.05rem; font-weight:600; color:{'#FF6B8B' if has_spoiler else '#CBD5E1'}; margin-bottom:0.5rem;">
+                                        "{next_c['text'] if next_c else 'No further spoken dialogue in this episode.'}"
+                                    </div>
+                                    <div style="font-size:0.78rem; color:{'#FF2E63' if has_spoiler else '#64748B'};">
+                                        {'🚨 Warning: Cutting here reveals the answer and kills mystery!' if has_spoiler else 'Safe boundary: Extends tension without premature reveal.'}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="lab-card lab-next">
-                                <span class="lab-badge badge-next">{'⚠️ SPOILER RISK' if has_spoiler else '⚡ NEXT SPOKEN LINE'} (CUE #{next_c['id'] if next_c else 'None'} · {next_c['label'] if next_c else 'N/A'})</span>
-                                <div style="font-size:1.05rem; font-weight:600; color:{'#FF6B8B' if has_spoiler else '#CBD5E1'}; margin-bottom:0.5rem;">
-                                    "{next_c['text'] if next_c else 'No further spoken dialogue in this episode.'}"
-                                </div>
-                                <div style="font-size:0.78rem; color:{'#FF2E63' if has_spoiler else '#64748B'};">
-                                    {'🚨 Warning: Cutting here reveals the answer and kills mystery!' if has_spoiler else 'Safe boundary: Extends tension without premature reveal.'}
-                                </div>
-                            </div>
-                        </div>
-                        """,
+                            """
+                        ),
                         unsafe_allow_html=True,
                     )
 
             with tab_inspect_sim:
                 st.markdown(
-                    f"""
-                    <div class="phone-sim-wrap">
-                        <div class="phone-top-bar">
-                            <span>KUKU FM • 9:16 FEED SIMULATOR</span>
-                            <span>EVALUATION PREVIEW</span>
-                            <span>REC ● 00:00:00</span>
-                        </div>
-                        <div class="sim-hook-banner">
-                            <span style="font-size:0.7rem; font-weight:800; color:var(--accent-kuku); text-transform:uppercase;">⚡ 0:00–0:03 Retention Hook</span><br>
-                            <span style="font-size:0.95rem; font-weight:700; color:#FFF;">{p['hook']}</span>
-                        </div>
-                        <div style="height:120px; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%); border-radius:8px; margin-bottom:0.8rem; border:1px dashed rgba(255,255,255,0.1);">
-                            <div style="text-align:center;">
-                                <div style="font-size:1.8rem; margin-bottom:0.2rem;">🎬</div>
-                                <div style="font-size:0.75rem; color:#94A3B8; font-family:'JetBrains Mono';">SCENE TIMECODE: {p['segments'][0]['start']} ➔ {p['segments'][-1]['end']}</div>
+                    textwrap.dedent(
+                        f"""
+                        <div class="phone-sim-wrap">
+                            <div class="phone-top-bar">
+                                <span>KUKU FM • 9:16 FEED SIMULATOR</span>
+                                <span>EVALUATION PREVIEW</span>
+                                <span>REC ● 00:00:00</span>
+                            </div>
+                            <div class="sim-hook-banner">
+                                <span style="font-size:0.7rem; font-weight:800; color:var(--accent-kuku); text-transform:uppercase;">⚡ 0:00–0:03 Retention Hook</span><br>
+                                <span style="font-size:0.95rem; font-weight:700; color:#FFF;">{p['hook']}</span>
+                            </div>
+                            <div style="height:120px; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%); border-radius:8px; margin-bottom:0.8rem; border:1px dashed rgba(255,255,255,0.1);">
+                                <div style="text-align:center;">
+                                    <div style="font-size:1.8rem; margin-bottom:0.2rem;">🎬</div>
+                                    <div style="font-size:0.75rem; color:#94A3B8; font-family:'JetBrains Mono';">SCENE TIMECODE: {p['segments'][0]['start']} ➔ {p['segments'][-1]['end']}</div>
+                                </div>
+                            </div>
+                            <div class="sim-subtitles">
+                                "{p['question']}"
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.8rem; font-size:0.75rem; color:#94A3B8;">
+                                <span>Duration: {p['duration_s']:.1f}s</span>
+                                <span style="color:var(--accent-emerald); font-weight:700;">Swipe up for Episode {p['segments'][0]['episode']} ➔</span>
                             </div>
                         </div>
-                        <div class="sim-subtitles">
-                            "{p['question']}"
-                        </div>
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.8rem; font-size:0.75rem; color:#94A3B8;">
-                            <span>Duration: {p['duration_s']:.1f}s</span>
-                            <span style="color:var(--accent-emerald); font-weight:700;">Swipe up for Episode {p['segments'][0]['episode']} ➔</span>
-                        </div>
-                    </div>
-                    """,
+                        """
+                    ),
                     unsafe_allow_html=True,
                 )
 
@@ -912,10 +919,12 @@ if st.session_state.results is not None:
             )
             for rv in passes:
                 st.markdown(
-                    f"""
-                    <div style="background:rgba(255,255,255,0.02); border-left:3px solid #475569; padding:0.4rem 0.8rem; border-radius:4px; margin-bottom:0.4rem; font-size:0.85rem;">
-                        <strong style="color:#CBD5E1;">Episode {rv['episode']}:</strong> <span style="color:#94A3B8;">{rv.get('note', 'No note.')}</span>
-                    </div>
-                    """,
+                    textwrap.dedent(
+                        f"""
+                        <div style="background:rgba(255,255,255,0.02); border-left:3px solid #475569; padding:0.4rem 0.8rem; border-radius:4px; margin-bottom:0.4rem; font-size:0.85rem;">
+                            <strong style="color:#CBD5E1;">Episode {rv['episode']}:</strong> <span style="color:#94A3B8;">{rv.get('note', 'No note.')}</span>
+                        </div>
+                        """
+                    ),
                     unsafe_allow_html=True,
                 )
