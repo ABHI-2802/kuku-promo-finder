@@ -875,34 +875,28 @@ if st.session_state.results is not None:
 
             with tab_inspect_sim:
                 st.markdown(
-                    textwrap.dedent(
-                        f"""
-                        <div class="phone-sim-wrap">
-                            <div class="phone-top-bar">
-                                <span>KUKU FM • 9:16 FEED SIMULATOR</span>
-                                <span>EVALUATION PREVIEW</span>
-                                <span>REC ● 00:00:00</span>
-                            </div>
-                            <div class="sim-hook-banner">
-                                <span style="font-size:0.7rem; font-weight:800; color:var(--accent-kuku); text-transform:uppercase;">⚡ 0:00–0:03 Retention Hook</span><br>
-                                <span style="font-size:0.95rem; font-weight:700; color:#FFF;">{p['hook']}</span>
-                            </div>
-                            <div style="height:120px; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%); border-radius:8px; margin-bottom:0.8rem; border:1px dashed rgba(255,255,255,0.1);">
-                                <div style="text-align:center;">
-                                    <div style="font-size:1.8rem; margin-bottom:0.2rem;">🎬</div>
-                                    <div style="font-size:0.75rem; color:#94A3B8; font-family:'JetBrains Mono';">SCENE TIMECODE: {p['segments'][0]['start']} ➔ {p['segments'][-1]['end']}</div>
-                                </div>
-                            </div>
-                            <div class="sim-subtitles">
-                                "{p['question']}"
-                            </div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.8rem; font-size:0.75rem; color:#94A3B8;">
-                                <span>Duration: {p['duration_s']:.1f}s</span>
-                                <span style="color:var(--accent-emerald); font-weight:700;">Swipe up for Episode {p['segments'][0]['episode']} ➔</span>
-                            </div>
-                        </div>
-                        """
-                    ),
+                    f'<div class="phone-sim-wrap">'
+                    f'<div class="phone-top-bar">'
+                    f'<span>KUKU FM • 9:16 FEED SIMULATOR</span>'
+                    f'<span>EVALUATION PREVIEW</span>'
+                    f'<span>REC ● 00:00:00</span>'
+                    f'</div>'
+                    f'<div class="sim-hook-banner">'
+                    f'<span style="font-size:0.7rem; font-weight:800; color:#FF6B00; text-transform:uppercase;">⚡ 0:00–0:03 Retention Hook</span><br>'
+                    f'<span style="font-size:0.95rem; font-weight:700; color:#FFF;">{p["hook"]}</span>'
+                    f'</div>'
+                    f'<div style="height:120px; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%); border-radius:8px; margin-bottom:0.8rem; border:1px dashed rgba(255,255,255,0.1);">'
+                    f'<div style="text-align:center;">'
+                    f'<div style="font-size:1.8rem; margin-bottom:0.2rem;">🎬</div>'
+                    f'<div style="font-size:0.75rem; color:#94A3B8; font-family:\'JetBrains Mono\';">SCENE TIMECODE: {p["segments"][0]["start"]} ➔ {p["segments"][-1]["end"]}</div>'
+                    f'</div>'
+                    f'</div>'
+                    f'<div class="sim-subtitles">"{p["question"]}"</div>'
+                    f'<div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.8rem; font-size:0.75rem; color:#94A3B8;">'
+                    f'<span>Duration: {p["duration_s"]:.1f}s</span>'
+                    f'<span style="color:#00F59B; font-weight:700;">Swipe up for Episode {p["segments"][0]["episode"]} ➔</span>'
+                    f'</div>'
+                    f'</div>',
                     unsafe_allow_html=True,
                 )
 
